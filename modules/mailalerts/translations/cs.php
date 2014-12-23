@@ -1,0 +1,46 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_ae0e822b6fad0de61c231ef188997e92'] = 'Musíte mít produkt, pro který chcete odstranit upozornění.';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_0d15d3afa8c174934ff0e43ce3b99bd3'] = 'Musíte být přihlášeni, abyste mohli spravovat své upozornění.';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_a9839ad48cf107667f73bad1d651f2ca'] = 'Žádná šablona nalezena';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_36c94bd456cf8796723ad09eac258aef'] = 'Správa mého účtu';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_d95cf4ab2cbf1dfb63f066b50558b07d'] = 'Můj účet';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_4edfd10d0bb5f51e0fd2327df608b5a8'] = 'Moje upozornění';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_1063e38cb53d94d386f21227fcd84717'] = 'Odebrat';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_8bb23c2ae698681ebb650f43acb54dab'] = 'Žadne e-mailove upozornění není k dispozici';
+$_MODULE['<{mailalerts}prestashop>mailalerts-account_0b3db27bc15f682e92ff250ebb167d4b'] = 'Zpět na Váš účet';
+$_MODULE['<{mailalerts}prestashop>mailalerts_fd30254803e8db32521d3390131a44da'] = 'Oznámení e-mailem [Mail alerts]';
+$_MODULE['<{mailalerts}prestashop>mailalerts_2d51f4a7ab8a12c4f35b507019523b8c'] = 'Posílá e-mailové oznámení zákazníkům a obchodníkům.';
+$_MODULE['<{mailalerts}prestashop>mailalerts_8fd3b84964bd6dfec8095f658d200b29'] = 'Jste si jisti, že chcete vymazat všechna oznámení pro zákazníky?';
+$_MODULE['<{mailalerts}prestashop>mailalerts_c1ee76f076a5b97e3b4b0c0e5703246e'] = 'Nelze aktualizovat nastavení';
+$_MODULE['<{mailalerts}prestashop>mailalerts_ce241f25e003bafeb9fce6857d8f027f'] = 'Vyplňte e-mailovou adresu (případně i více e-mailových adres)';
+$_MODULE['<{mailalerts}prestashop>mailalerts_29aae9c646337554f4de7ae29050c39f'] = 'E-mailová adresa je ve špatném formátu:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_58a20987a1f4e45d508b4491614a2c57'] = 'Zákaznické oznámení';
+$_MODULE['<{mailalerts}prestashop>mailalerts_ea379dd90c33c1345f40aa0afa6688d8'] = 'Dostupnost zboží:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_86e8d61297942b00e9937299735df971'] = 'Umožní zákazníkovi přijímat oznámení, jakmile bude nedostupné zboží skladem.';
+$_MODULE['<{mailalerts}prestashop>mailalerts_38fb7d24e0d60a048f540ecb18e13376'] = 'Uložit';
+$_MODULE['<{mailalerts}prestashop>mailalerts_6f974bbda9064a9c0836370dbf5a6076'] = 'Obchodní oznámení';
+$_MODULE['<{mailalerts}prestashop>mailalerts_9204d21640382a89a95ec42f44f9051c'] = 'Nová objednávka:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_dea3d17a0f0ecab1f65cc486bfa56051'] = 'Příjem oznámení, když je vložena objednávka';
+$_MODULE['<{mailalerts}prestashop>mailalerts_ebc3ccf8441dba3c1615afa6acb3282a'] = 'Zboží není skladem:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_0b46debf72500e9a1650fa18e6ca72a1'] = 'Příjem oznámení, pokud je dostupné množství výrobku nižší než prahové';
+$_MODULE['<{mailalerts}prestashop>mailalerts_02505a778171466cc5e4f96c4eeaa9da'] = 'Prahové množství:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_62109400d1297f6b6c900eb7f6ba0aaa'] = 'Množství, pro které je produkt ovažován za vyprodán';
+$_MODULE['<{mailalerts}prestashop>mailalerts_3d7b12c4623906965db0a3f8e7390652'] = 'Varování rozsahu:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_929396618e54384e9a22493055028533'] = 'Příjem oznámení v případě, že množství výrobku na skladě je nižší než tato hodnota';
+$_MODULE['<{mailalerts}prestashop>mailalerts_cadcfa2749b0cfb51d88837d4a934ad1'] = 'Rozsah:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_a27c67cad62fc03d13c2f67e5f749691'] = 'Pokrytí skladu ve dnech. Pokrytí skladu pro daný produkt je vypočítán na základě tohoto počtu.';
+$_MODULE['<{mailalerts}prestashop>mailalerts_7bcb7394f6b2ff226c423fea1a153754'] = 'E-mail:';
+$_MODULE['<{mailalerts}prestashop>mailalerts_4395d1c88a7f0796edc652d2b57bc664'] = 'Jedna e-mailová adresa na řádek (např. jan@mojedomena.cz)';
+$_MODULE['<{mailalerts}prestashop>mailalerts_7cb9a154f101c674c945f88dad5c5e28'] = 'Žádné oznámení';
+$_MODULE['<{mailalerts}prestashop>mailalerts_1d744a9ad1dac20645cfc4a36b77323b'] = 'obrázek(y)';
+$_MODULE['<{mailalerts}prestashop>mailalerts_9137796c15dd92e5553c3f29574d0968'] = 'Kód slevového kupónu:';
+$_MODULE['<{mailalerts}prestashop>my-account_4edfd10d0bb5f51e0fd2327df608b5a8'] = 'Moje oznámení';
+$_MODULE['<{mailalerts}prestashop>product_67135a14d3ac4f1369633dd006d6efec'] = 'vas@email.cz';
+$_MODULE['<{mailalerts}prestashop>product_61172eb93737ebf095d3fa02119ce1df'] = 'Váš požadavek byl zaevidován';
+$_MODULE['<{mailalerts}prestashop>product_bb51a155575b81f4a07f7a9bafdc3b01'] = 'Již máte upozornění o tomto produktu';
+$_MODULE['<{mailalerts}prestashop>product_900f8551b29793ecb604a545b2059cc1'] = 'Váš e-mailová adresa je neplatná';
+$_MODULE['<{mailalerts}prestashop>product_546e02eaa9a986c83cc347e273269f2c'] = 'Informujte mě, až bude k dispozici';

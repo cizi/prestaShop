@@ -1,0 +1,60 @@
+<pos_sequence>
+<!-- slideshow  configuration -->
+	<sequence>
+		<id_pos_sequence>11</id_pos_sequence>
+		<animate>animate-in</animate>
+		<kind_effect>1</kind_effect>
+		<active>1</active>
+		<porder>0</porder>
+	</sequence>
+	<sequence>
+		<id_pos_sequence>12</id_pos_sequence>
+		<animate>animate-in</animate>
+		<kind_effect>1</kind_effect>
+		<active>1</active>
+		<porder>0</porder>
+	</sequence>
+<!-- slideshow  language configuration -->	
+	<sequence_lang>
+		<id_pos_sequence>11</id_pos_sequence>
+		<id_lang>1</id_lang>
+		<title1>AUTUMN/WINTER LOOKBOOK</title1>
+		<title2>- 2014 COLLECTION -</title2>
+		<link></link>
+		<description></description>
+	</sequence_lang>
+	<sequence_lang>
+		<id_pos_sequence>12</id_pos_sequence>
+		<id_lang>1</id_lang>
+		<title1>AUTUMN/WINTER LOOKBOOK</title1>
+		<title2>- 2014 COLLECTION -</title2>
+		<link></link>
+		<description></description>
+	</sequence_lang>
+<!-- language 2 -->	
+	<sequence_lang>
+		<id_pos_sequence>11</id_pos_sequence>
+		<id_lang>2</id_lang>
+		<title1>AUTUMN/WINTER LOOKBOOK</title1>
+		<title2>- 2014 COLLECTION -</title2>
+		<link></link>
+		<description></description>
+	</sequence_lang>
+	<sequence_lang>
+		<id_pos_sequence>12</id_pos_sequence>
+		<id_lang>2</id_lang>
+		<title1>AUTUMN/WINTER LOOKBOOK</title1>
+		<title2>- 2014 COLLECTION -</title2>
+		<link></link>
+		<description></description>
+	</sequence_lang>
+<!-- slideshop configuration -->
+	<sequence_shop>
+		<id_pos_sequence>11</id_pos_sequence>
+		<id_shop>1</id_shop>
+	</sequence_shop>
+	<sequence_shop>
+		<id_pos_sequence>12</id_pos_sequence>
+		<id_shop>1</id_shop>
+	</sequence_shop>
+</pos_sequence>

@@ -1,0 +1,327 @@
+<pos_static_blocks>
+<!-- static block configuration -->
+	<block>
+		<id_posstaticblock>1</id_posstaticblock>
+		<identify>open-time</identify>
+		<hook_position>blockPosition1</hook_position>
+		<name_module></name_module>
+		<hook_module></hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<showhook>1</showhook>
+	</block>
+	<block>
+		<id_posstaticblock>2</id_posstaticblock>
+		<identify>block-static1</identify>
+		<hook_position>blockPosition2</hook_position>
+		<name_module></name_module>
+		<hook_module></hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<showhook>1</showhook>
+	</block>
+	<block>
+		<id_posstaticblock>3</id_posstaticblock>
+		<identify>block-static2</identify>
+		<hook_position>blockPosition3</hook_position>
+		<name_module></name_module>
+		<hook_module></hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<showhook>1</showhook>
+	</block>
+	<block>
+		<id_posstaticblock>4</id_posstaticblock>
+		<identify>block-static3</identify>
+		<hook_position>blockPosition4</hook_position>
+		<name_module></name_module>
+		<hook_module></hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<showhook>1</showhook>
+	</block>
+	<block>
+		<id_posstaticblock>5</id_posstaticblock>
+		<identify>static-sequence</identify>
+		<hook_position>blockPosition5</hook_position>
+		<name_module></name_module>
+		<hook_module></hook_module>
+		<posorder>0</posorder>
+		<insert_module>0</insert_module>
+		<active>0</active>
+		<showhook>1</showhook>
+	</block>
+<!-- block lang configuration -->
+	<block_lang>
+		<id_posstaticblock>1</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Open Time</title>
+		<description>
+			<![CDATA[
+				<div class="open-time"><em class="fa fa-clock-o">&nbsp;</em>
+<p><span class="opentime">OPENING TIME</span> <span class="time"> 9.00 AM - 10.00 PM</span></p>
+</div>
+			]]>
+		</description>
+	</block_lang>
+
+	<block_lang>
+		<id_posstaticblock>2</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Block Static 1</title>
+		<description>
+			<![CDATA[
+				<div class="pos-block-static-1">
+<div class="row">
+<div class="box-col box-col-1 col-md-5  col-sm-5 col-sms-12 col-smb-12"><a href="93-clothing"><img src="/pos_accessories/img/cms/banner_home1.jpg" alt="" /></a></div>
+<div class="box-col box-col-2 col-md-7 col-sm-7"><a href="12-equipments"><img src="/pos_accessories/img/cms/banner_home2.jpg" alt="" /></a></div>
+</div>
+</div>
+			]]>
+		</description>
+	</block_lang>
+
+	<block_lang>
+		<id_posstaticblock>3</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Block Static 2</title>
+		<description>
+			<![CDATA[
+				<div class="pos-block-static-2">
+<div class="container">
+<div class="static-title">
+<h2>Static block</h2>
+</div>
+<div class="static-content">
+<div class="row">
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_1.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_2.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_3.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_4.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+			]]>
+		</description>
+	</block_lang>
+
+	<block_lang>
+		<id_posstaticblock>4</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Block Static 3</title>
+		<description>
+			<![CDATA[
+				<div class="pos-block-static-3">
+<div class="container">
+<div class="container-inner">
+<div class="row">
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="head-block-content"><em class="fa fa-phone-square">&nbsp;</em>
+<p><span class="title-bold">ORDER ONLINE NOW</span> Call Us: (0123) 456 789</p>
+</div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="head-block-content"><em class="fa fa-plane">&nbsp;</em>
+<p><span class="title-bold">FREE WORLDWIDE SHIPPING</span> On Order Over $100</p>
+</div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="head-block-content"><em class="fa fa-money">&nbsp;</em>
+<p><span class="title-bold">30 DAYS MONEY BACK 100%</span> Satisfaction Guarantee</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+			]]>
+		</description>
+	</block_lang>
+		<block_lang>
+		<id_posstaticblock>5</id_posstaticblock>
+		<id_lang>1</id_lang>
+		<title>Static Sequence</title>
+		<description>
+			<![CDATA[
+				<div class="sequence-static">
+<div class="box-sequence-static box-sequence-static1"><a href="93-clothing"> <img src="/pos_accessories/img/cms/static_home1.png" alt="no image" /> </a></div>
+<div class="box-sequence-static box-sequence-static2"><a href="15-books"> <img src="/pos_accessories/img/cms/static_home2.png" alt="no image" /> </a></div>
+</div>
+			]]>
+		</description>
+	</block_lang>	
+<!-- language 2 -->
+<block_lang>
+		<id_posstaticblock>1</id_posstaticblock>
+		<id_lang>2</id_lang>
+		<title>Open Time</title>
+		<description>
+			<![CDATA[
+				<div class="open-time"><em class="fa fa-clock-o">&nbsp;</em>
+<p><span class="opentime">OPENING TIME</span> <span class="time"> 9.00 AM - 10.00 PM</span></p>
+</div>
+			]]>
+		</description>
+	</block_lang>
+
+	<block_lang>
+		<id_posstaticblock>2</id_posstaticblock>
+		<id_lang>2</id_lang>
+		<title>Block Static 1</title>
+		<description>
+			<![CDATA[
+				<div class="pos-block-static-1">
+<div class="row">
+<div class="box-col box-col-1 col-md-5  col-sm-5 col-sms-12 col-smb-12"><a href="93-clothing"><img src="/pos_accessories/img/cms/banner_home1.jpg" alt="" /></a></div>
+<div class="box-col box-col-2 col-md-7 col-sm-7"><a href="12-equipments"><img src="/pos_accessories/img/cms/banner_home2.jpg" alt="" /></a></div>
+</div>
+</div>
+			]]>
+		</description>
+	</block_lang>
+
+	<block_lang>
+		<id_posstaticblock>3</id_posstaticblock>
+		<id_lang>2</id_lang>
+		<title>Block Static 2</title>
+		<description>
+			<![CDATA[
+				<div class="pos-block-static-2">
+<div class="container">
+<div class="static-title">
+<h2>Static block</h2>
+</div>
+<div class="static-content">
+<div class="row">
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_1.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_2.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_3.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+<div class="col-md-3 col-sm-3 col-sms-12">
+<div class="static-image"><a href="#"> <img src="/pos_accessories/img/cms/static1_4.jpg" alt="No image" /> </a></div>
+<div class="static-main">
+<h3>This Is The First Sample Heading Title</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed do...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+			]]>
+		</description>
+	</block_lang>
+
+	<block_lang>
+		<id_posstaticblock>4</id_posstaticblock>
+		<id_lang>2</id_lang>
+		<title>Block Static 3</title>
+		<description>
+			<![CDATA[
+				<div class="pos-block-static-3">
+<div class="container">
+<div class="container-inner">
+<div class="row">
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="head-block-content"><em class="fa fa-phone-square">&nbsp;</em>
+<p><span class="title-bold">ORDER ONLINE NOW</span> Call Us: (0123) 456 789</p>
+</div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="head-block-content"><em class="fa fa-plane">&nbsp;</em>
+<p><span class="title-bold">FREE WORLDWIDE SHIPPING</span> On Order Over $100</p>
+</div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="head-block-content"><em class="fa fa-money">&nbsp;</em>
+<p><span class="title-bold">30 DAYS MONEY BACK 100%</span> Satisfaction Guarantee</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+			]]>
+		</description>
+	</block_lang>
+	<block_lang>
+		<id_posstaticblock>5</id_posstaticblock>
+		<id_lang>2</id_lang>
+		<title>Static Sequence</title>
+		<description>
+			<![CDATA[
+				<div class="sequence-static">
+<div class="box-sequence-static box-sequence-static1"><a href="93-clothing"> <img src="/pos_accessories/img/cms/static_home1.png" alt="no image" /> </a></div>
+<div class="box-sequence-static box-sequence-static2"><a href="15-books"> <img src="/pos_accessories/img/cms/static_home2.png" alt="no image" /> </a></div>
+</div>
+			]]>
+		</description>
+	</block_lang>		
+<!-- block shop configuration -->
+	<block_shop>
+		<id_posstaticblock>1</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+	<block_shop>
+		<id_posstaticblock>2</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+	<block_shop>
+		<id_posstaticblock>3</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+	<block_shop>
+		<id_posstaticblock>4</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+	<block_shop>
+		<id_posstaticblock>5</id_posstaticblock>
+		<id_shop>1</id_shop>
+	</block_shop>
+</pos_static_blocks>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <module>
+            <name>mailalerts</name>
+            <displayName><![CDATA[Ozn&aacute;men&iacute; e-mailem [Mail alerts]]]></displayName>
+            <version><![CDATA[2.8]]></version>
+            <description><![CDATA[Pos&iacute;l&aacute; e-mailov&eacute; ozn&aacute;men&iacute; z&aacute;kazn&iacute;kům a obchodn&iacute;kům.]]></description>
+            <author><![CDATA[PrestaShop]]></author>
+            <tab><![CDATA[administration]]></tab>
+	<confirmUninstall>Jste si jisti, že chcete vymazat všechna oznámení pro zákazníky?</confirmUninstall>
+            <is_configurable>1</is_configurable>
+            <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+        </module>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>followup</name>
+	<displayName><![CDATA[Zas&iacute;l&aacute;n&iacute; nab&iacute;dek z&aacute;kazn&iacute;kům [Follow-up]]]></displayName>
+	<version><![CDATA[1.0]]></version>
+	<description><![CDATA[Udržte si spokojen&eacute; z&aacute;kazn&iacute;ky t&iacute;m, že jim budete pravidelně zas&iacute;lat l&aacute;kav&eacute; nab&iacute;dky.]]></description>
+	<author><![CDATA[PrestaShop]]></author>
+	<tab><![CDATA[advertising_marketing]]></tab>
+	<confirmUninstall><![CDATA[Opravdu chcete vymazat všechna nastavení?]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

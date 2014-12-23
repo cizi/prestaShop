@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<partners>
+<partner>
+	<name><![CDATA[Ogone]]></name>
+	<module>ogone</module>
+	<checkconfiguration>
+		<key>OGONE_PSPID</key>
+		<key>OGONE_SHA_IN</key>
+		<key>OGONE_SHA_OUT</key>
+	</checkconfiguration>
+	<logo><![CDATA[https://api.prestashop.com/partner/premium/images/ogone.png]]></logo>
+	<labels>
+		<label iso="en"><![CDATA[Speed up your international sales by offering local payment methods]]></label>
+		<label iso="fr"><![CDATA[Accélérez vos ventes à l’international en offrant les moyens de paiement locaux]]></label>
+		<label iso="es"><![CDATA[Acelera el incremento de tus ventas ofreciendo medios de pago locales]]></label>
+		<label iso="de"><![CDATA[Steigern Sie Ihre internationalen Verkäufe durch lokale Zahlmethoden]]></label>
+		<label iso="nl"><![CDATA[Verhoog uw internationale verkoop door lokale betaalmethoden]]></label>
+	</labels>
+</partner>
+<partner>
+	<name><![CDATA[Shopgate]]></name>
+	<module>shopgate</module>
+	<checkconfiguration>
+		<key>%</key>
+	</checkconfiguration>
+	<logo><![CDATA[https://api.prestashop.com/partner/premium/images/shopgate.png]]></logo>
+	<labels>
+		<label iso="en"><![CDATA[Go mobile and boost your sales]]></label>
+		<label iso="fr"><![CDATA[Devenez mobile et augmentez vos ventes]]></label>
+		<label iso="nl"><![CDATA[Ga mobiel en verhoog uw omzet]]></label>
+	</labels>
+	<optionals>
+	</optionals>
+	<descriptions>
+	</descriptions>
+</partner>
+</partners>

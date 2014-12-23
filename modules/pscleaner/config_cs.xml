@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>pscleaner</name>
+	<displayName><![CDATA[Čistič PrestaShopu [PrestaShop Cleaner]]]></displayName>
+	<version><![CDATA[1.8.2]]></version>
+	<description><![CDATA[Zkontrolovat a opravit funkčn&iacute; omezen&iacute; integrity a odstranit v&yacute;choz&iacute; data]]></description>
+	<author><![CDATA[PrestaShop]]></author>
+	<tab><![CDATA[administration]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

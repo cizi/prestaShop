@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>cashondelivery</name>
+	<displayName><![CDATA[Platba v hotovosti / dob&iacute;rka]]></displayName>
+	<version><![CDATA[0.4]]></version>
+	<description><![CDATA[Přij&iacute;mat platby při doručen&iacute; zbož&iacute; / na dob&iacute;rku]]></description>
+	<author><![CDATA[PrestaShop]]></author>
+	<tab><![CDATA[payments_gateways]]></tab>
+	<is_configurable>0</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
