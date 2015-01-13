@@ -46,7 +46,7 @@ class BlockSearch extends Module
 
 	public function install()
 	{
-		if (!parent::install() || !$this->registerHook('top') || !$this->registerHook('header') || !$this->registerHook('displayMobileTopSiteMap'))
+		if (!parent::install() || !$this->registerHook('Homesearch')|| !$this->registerHook('top') || !$this->registerHook('header') || !$this->registerHook('displayMobileTopSiteMap'))
 			return false;
 		return true;
 	}
@@ -117,6 +117,10 @@ public function hookDisplayMobileHeader($params)
 	}
 	
 	public function hookDisplayNav($params)
+	{
+		return $this->hookTop($params);
+	}
+	public function hookHomesearch($params)
 	{
 		return $this->hookTop($params);
 	}

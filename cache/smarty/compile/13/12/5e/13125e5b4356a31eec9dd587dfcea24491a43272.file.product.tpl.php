@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-12-16 18:18:03
+<?php /* Smarty version Smarty-3.1.19, created on 2015-01-12 11:28:36
          compiled from "/data/web/virtuals/75717/virtual/www/subdom/presta/themes/pos_accessories3/product.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:18301005285490694b871dd9-88003114%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:209348835454b3a1d42c9ac1-50264836%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '18301005285490694b871dd9-88003114',
+  'nocache_hash' => '209348835454b3a1d42c9ac1-50264836',
   'function' => 
   array (
   ),
@@ -106,9 +106,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5490694c8494c0_28451431',
+  'unifunc' => 'content_54b3a1d537e228_69246988',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5490694c8494c0_28451431')) {function content_5490694c8494c0_28451431($_smarty_tpl) {?><?php if (!is_callable('smarty_function_math')) include '/data/web/virtuals/75717/virtual/www/subdom/presta/tools/smarty/plugins/function.math.php';
+<?php if ($_valid && !is_callable('content_54b3a1d537e228_69246988')) {function content_54b3a1d537e228_69246988($_smarty_tpl) {?><?php if (!is_callable('smarty_function_math')) include '/data/web/virtuals/75717/virtual/www/subdom/presta/tools/smarty/plugins/function.math.php';
 if (!is_callable('smarty_modifier_date_format')) include '/data/web/virtuals/75717/virtual/www/subdom/presta/tools/smarty/plugins/modifier.date_format.php';
 if (!is_callable('smarty_function_cycle')) include '/data/web/virtuals/75717/virtual/www/subdom/presta/tools/smarty/plugins/function.cycle.php';
 if (!is_callable('smarty_function_counter')) include '/data/web/virtuals/75717/virtual/www/subdom/presta/tools/smarty/plugins/function.counter.php';

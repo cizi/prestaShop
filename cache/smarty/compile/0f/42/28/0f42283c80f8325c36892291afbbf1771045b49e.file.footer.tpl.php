@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-12-16 18:13:33
+<?php /* Smarty version Smarty-3.1.19, created on 2015-01-12 10:50:20
          compiled from "/data/web/virtuals/75717/virtual/www/subdom/presta/modules/posscroll/footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14410922935490683defbac7-78842317%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:5289628854b398dccf7d85-27889310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '14410922935490683defbac7-78842317',
+  'nocache_hash' => '5289628854b398dccf7d85-27889310',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5490683defdcb3_42978029',
+  'unifunc' => 'content_54b398dccfa6d5_25652116',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5490683defdcb3_42978029')) {function content_5490683defdcb3_42978029($_smarty_tpl) {?><div class="back-top"><a href= "#" class="mypresta_scrollup hidden-phone"></a></div><?php }} ?>
+<?php if ($_valid && !is_callable('content_54b398dccfa6d5_25652116')) {function content_54b398dccfa6d5_25652116($_smarty_tpl) {?><div class="back-top"><a href= "#" class="mypresta_scrollup hidden-phone"></a></div><?php }} ?>

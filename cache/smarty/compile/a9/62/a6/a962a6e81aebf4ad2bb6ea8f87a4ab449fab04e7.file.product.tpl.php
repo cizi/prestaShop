@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-12-16 18:18:03
+<?php /* Smarty version Smarty-3.1.19, created on 2015-01-12 11:28:35
          compiled from "/data/web/virtuals/75717/virtual/www/subdom/presta/themes/pos_accessories3/modules/loyalty/views/templates/hook/product.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:12512371515490694b4043a6-70349840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:26693268554b3a1d33cbdb0-68027070%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12512371515490694b4043a6-70349840',
+  'nocache_hash' => '26693268554b3a1d33cbdb0-68027070',
   'function' => 
   array (
   ),
@@ -28,9 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5490694b4f70a4_94194688',
+  'unifunc' => 'content_54b3a1d34b30a0_44483025',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5490694b4f70a4_94194688')) {function content_5490694b4f70a4_94194688($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_54b3a1d34b30a0_44483025')) {function content_54b3a1d34b30a0_44483025($_smarty_tpl) {?>
 <p id="loyalty" class="align_justify">
 	<?php if ($_smarty_tpl->tpl_vars['points']->value) {?>
 		<?php echo smartyTranslate(array('s'=>'By buying this product you can collect up to','mod'=>'loyalty'),$_smarty_tpl);?>

@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-12-16 17:41:32
+<?php /* Smarty version Smarty-3.1.19, created on 2015-01-12 10:50:19
          compiled from "/data/web/virtuals/75717/virtual/www/subdom/presta/modules/paypal/js/paypal.js" */ ?>
-<?php /*%%SmartyHeaderCode:13378212549060bc92e598-42441602%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:204387581054b398db779111-12141473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '13378212549060bc92e598-42441602',
+  'nocache_hash' => '204387581054b398db779111-12141473',
   'function' => 
   array (
   ),
@@ -25,9 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_549060bca1c7f9_76160982',
+  'unifunc' => 'content_54b398db8b5e33_47985893',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_549060bca1c7f9_76160982')) {function content_549060bca1c7f9_76160982($_smarty_tpl) {?>/*
+<?php if ($_valid && !is_callable('content_54b398db8b5e33_47985893')) {function content_54b398db8b5e33_47985893($_smarty_tpl) {?>/*
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE

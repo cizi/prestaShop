@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-12-16 18:13:34
+<?php /* Smarty version Smarty-3.1.19, created on 2015-01-12 11:12:14
          compiled from "/data/web/virtuals/75717/virtual/www/subdom/presta/themes/pos_accessories3/header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3503447625490683e0a2464-53277150%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:44441406854b398dce8ca32-47948874%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c2428476f9c00a4f47134b8f7c0dbd70ef7d2349' => 
     array (
       0 => '/data/web/virtuals/75717/virtual/www/subdom/presta/themes/pos_accessories3/header.tpl',
-      1 => 1418749943,
+      1 => 1421057529,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3503447625490683e0a2464-53277150',
+  'nocache_hash' => '44441406854b398dce8ca32-47948874',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_54b398dd10b059_94781858',
   'variables' => 
   array (
     'lang_iso' => 0,
@@ -53,10 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'right_column_size' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5490683e251d15_26885218',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5490683e251d15_26885218')) {function content_5490683e251d15_26885218($_smarty_tpl) {?><?php if (!is_callable('smarty_function_implode')) include '/data/web/virtuals/75717/virtual/www/subdom/presta/tools/smarty/plugins/function.implode.php';
+<?php if ($_valid && !is_callable('content_54b398dd10b059_94781858')) {function content_54b398dd10b059_94781858($_smarty_tpl) {?><?php if (!is_callable('smarty_function_implode')) include '/data/web/virtuals/75717/virtual/www/subdom/presta/tools/smarty/plugins/function.implode.php';
 ?>
 <!DOCTYPE HTML>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 " lang="<?php echo $_smarty_tpl->tpl_vars['lang_iso']->value;?>

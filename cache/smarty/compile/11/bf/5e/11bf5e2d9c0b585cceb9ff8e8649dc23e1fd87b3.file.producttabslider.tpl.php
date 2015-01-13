@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-12-16 18:15:57
+<?php /* Smarty version Smarty-3.1.19, created on 2015-01-12 10:50:21
          compiled from "/data/web/virtuals/75717/virtual/www/subdom/presta/themes/pos_accessories3/modules/postabproductslider/producttabslider.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:481237074549068cdd6d0b4-70911003%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:32893012754b398dd7146d6-19324767%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '11bf5e2d9c0b585cceb9ff8e8649dc23e1fd87b3' => 
     array (
       0 => '/data/web/virtuals/75717/virtual/www/subdom/presta/themes/pos_accessories3/modules/postabproductslider/producttabslider.tpl',
-      1 => 1418749943,
+      1 => 1421055142,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '481237074549068cdd6d0b4-70911003',
+  'nocache_hash' => '32893012754b398dd7146d6-19324767',
   'function' => 
   array (
   ),
@@ -36,9 +36,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_549068ce0a3a42_20014403',
+  'unifunc' => 'content_54b398dda0a137_07242119',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_549068ce0a3a42_20014403')) {function content_549068ce0a3a42_20014403($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_54b398dda0a137_07242119')) {function content_54b398dda0a137_07242119($_smarty_tpl) {?>
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -210,7 +210,7 @@ _tabcategory product_image" href="<?php echo htmlspecialchars($_smarty_tpl->tpl_
 													<?php if (($_smarty_tpl->tpl_vars['product']->value['allow_oosp']||$_smarty_tpl->tpl_vars['product']->value['quantity']>0)) {?>
 														<?php if (isset($_smarty_tpl->tpl_vars['static_token']->value)) {?>
 															<a class="button ajax_add_to_cart_button btn btn-default" href="<?php ob_start();?><?php echo intval($_smarty_tpl->tpl_vars['product']->value['id_product']);?>
-<?php $_tmp1=ob_get_clean();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['link']->value->getPageLink('cart',false,null,"add=1&amp;id_product=".$_tmp1."&amp;token=".((string)$_smarty_tpl->tpl_vars['static_token']->value),false), ENT_QUOTES, 'UTF-8', true);?>
+<?php $_tmp5=ob_get_clean();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['link']->value->getPageLink('cart',false,null,"add=1&amp;id_product=".$_tmp5."&amp;token=".((string)$_smarty_tpl->tpl_vars['static_token']->value),false), ENT_QUOTES, 'UTF-8', true);?>
 " rel="nofollow" title="<?php echo smartyTranslate(array('s'=>'Add to cart'),$_smarty_tpl);?>
 " data-id-product="<?php echo intval($_smarty_tpl->tpl_vars['product']->value['id_product']);?>
 ">

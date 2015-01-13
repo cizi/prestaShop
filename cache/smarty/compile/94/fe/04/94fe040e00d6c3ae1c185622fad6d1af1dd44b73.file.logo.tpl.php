@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-12-16 18:15:58
+<?php /* Smarty version Smarty-3.1.19, created on 2015-01-12 10:50:21
          compiled from "/data/web/virtuals/75717/virtual/www/subdom/presta/themes/pos_accessories3/modules/poslogo/logo.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1618944817549068ce62b683-69094631%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:127717260754b398ddeca741-72589693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1618944817549068ce62b683-69094631',
+  'nocache_hash' => '127717260754b398ddeca741-72589693',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_549068ce6d2762_90741951',
+  'unifunc' => 'content_54b398de042058_63222691',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_549068ce6d2762_90741951')) {function content_549068ce6d2762_90741951($_smarty_tpl) {?><div class="pos-logo-container">	
+<?php if ($_valid && !is_callable('content_54b398de042058_63222691')) {function content_54b398de042058_63222691($_smarty_tpl) {?><div class="pos-logo-container">	
 		<div class="pos-logo">
 			<div class="pos-logo-title"><h2><?php echo smartyTranslate(array('s'=>'OUR BRANDS','mod'=>'poslogo'),$_smarty_tpl);?>
 </h2></div>
