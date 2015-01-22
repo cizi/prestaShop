@@ -26,11 +26,13 @@
 {if isset($blockcart_top) && $blockcart_top}
 <div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 {/if}
+        <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" ></span>
+        <span class="dressing_room" id="dressing_room" onclick="alert('Tady bude kabinka');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
 	<div class="shopping_cart">
 		<div class="shopping_cart_inner">
 			<div class="shopping_cart_inner1">
 			<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" class="tile-cart" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
-			<b>{l s='My Cart' mod='blockcart'}</b>
+			<b>{l s='Košík' mod='blockcart'}</b>
 			<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>
 			<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='item - ' mod='blockcart'}</span>
 			<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='items - ' mod='blockcart'}</span>

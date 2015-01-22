@@ -7548,6 +7548,10 @@ color: #999;
 #header .shopping_cart .ajax_cart_product_txt, #header .shopping_cart .ajax_cart_product_txt_s{}
 .cart_last_product {
   display: none!important;}
+.dressing_room {color: #555;font-weight: normal; font-family: 'BebasNeuewebfont'; font-size: 19px; text-transform: uppercase; display: inline-block; position: absolute; margin-top: 6px}
+.dressing_room_on {color: #e48080;font-weight: normal; font-family: 'BebasNeuewebfont'; font-size: 19px; text-transform: uppercase; display: inline-block; position: absolute; margin-top: 6px}
+.dressing_man { display: inline-block; width: 22px; height: 48px; background: url(../img/manequin.png) no-repeat; }
+.dressing_man_on { display: inline-block; width: 22px; height: 48px; background: url(../img/manequin_orange.png) no-repeat; }
 #header .shopping_cart_inner a.tile-cart{display: block; font-size: 14px; float: left; padding: 6px 0 0 50px; background: url(../img/mycart.png) no-repeat 11px 9px; text-align: left; }
 #header .shopping_cart_inner:hover a.tile-cart{background-position: 11px -60px; } 
 .fa-shopping-cart{margin-right: 2px; }

@@ -338,3 +338,20 @@ function accordion(status)
 		$('#left_column, #right_column').removeClass('accordion');
 	}
 }
+
+function hover_manequin_on()
+{
+    $('#dressing_room').removeClass('dressing_room');
+    $('#dressing_room').addClass('dressing_room_on');
+            
+    $('#dressing_man').removeClass('dressing_man');
+    $('#dressing_man').addClass('dressing_man_on');
+}
+
+function hover_manequin_off()
+{
+    $('#dressing_room').removeClass('dressing_room_on');
+    $('#dressing_room').addClass('dressing_room');
+    $('#dressing_man').removeClass('dressing_man_on');
+    $('#dressing_man').addClass('dressing_man');    
+}
