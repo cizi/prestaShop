@@ -70,9 +70,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 @font-face {
     font-family: 'BebasNeuewebfont';
     src: url('../font/BebasNeuewebfont.eot');
-    src: local('BebasNeuewebfont'),
-     url('../font/BebasNeuewebfont.woff') format('woff'),
-      url('../font/BebasNeuewebfont.ttf') format('truetype');
+    src: url('../font/BebasNeuewebfont.eot') format('embedded-opentype'),
+         url('../font/BebasNeuewebfont.woff') format('woff'),
+         url('../font/BebasNeuewebfont.ttf') format('truetype'),
+         url('../font/opensans-regular.svg#OpenSansRegular') format('svg');
 }
 
 /**************************************************************************************************/
