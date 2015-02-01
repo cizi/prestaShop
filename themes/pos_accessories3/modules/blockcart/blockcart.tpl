@@ -31,12 +31,12 @@
 	<div class="shopping_cart">
 		<div class="shopping_cart_inner">
 			<div class="shopping_cart_inner1">
-			<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" class="tile-cart" title="{l s='Zobrazit košík' mod='blockcart'}" rel="nofollow">
+			<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" class="tile-cart" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 			<b>{l s='Košík' mod='blockcart'}</b>
 			<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>
-			<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='položek - ' mod='blockcart'}</span>
-			<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='položek - ' mod='blockcart'}</span>
-			<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}">{l s='0 položek - ' mod='blockcart'}</span>
+			<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='item - ' mod='blockcart'}</span>
+			<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='items - ' mod='blockcart'}</span>
+			<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}">{l s='0 item - ' mod='blockcart'}</span>
 			<span class="ajax_cart_total{if $cart_qties == 0} unvisible{/if}">
 				{if $cart_qties == 0}
 					{assign var='blockcart_cart_flag' value='Cart::BOTH_WITHOUT_SHIPPING'|constant}
