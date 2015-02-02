@@ -132,9 +132,9 @@
 															</a>
 													{/if}
                                                                                                             
-                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#" onclick="alert('na figurinu');" title="Add to manequin">
+                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#" onclick="flee_to_the_manequin('{$lang_iso}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}');" title="Add to manequin">
                                                                                                                 <i class="fa-shopping-cart"></i>
-                                                                                                                <span>{l s='Add to manequin'}</span>
+                                                                                                                <span id="man_btn_{$product.id_product}">{l s='Add to manequin'}</span>
                                                                                                             </a>
 													</div>	
 												</div> <!-- actions -->		

@@ -355,3 +355,15 @@ function hover_manequin_off()
     $('#dressing_man').removeClass('dressing_man_on');
     $('#dressing_man').addClass('dressing_man');    
 }
+
+function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text)
+{
+    id_element = "man_btn_" + id;
+    if (id_lang="cs") 
+        $("#" + id_element).html("Zpracovávám...");
+    else
+        $("#" + id_element).html("Processing...");
+    
+    // $("#" + id_element).html(original_text);
+}
+
