@@ -79,9 +79,9 @@ $(document).ready(function() {
 														</div> <!-- content_price-->
 													{/if}
 													<div class="button-container">
-                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#" onclick="flee_to_the_manequin('{$lang_iso}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}');" title="Add to manequin" rel="{$product.link|escape:'html':'UTF-8'}">
+                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#" onclick="flee_to_the_manequin('{$lang_iso}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','Přidat do šatny');" title="Add to manequin" rel="{$product.link|escape:'html':'UTF-8'}">
                                                                                                                 <i class="fa-shopping-cart"></i>
-                                                                                                                <span id="man_btn_{$product.id_product}">{l s='Přidat na figurínu'}</span>
+                                                                                                                <span id="man_btn_{$product.id_product}">{l s='Přidat do šatny'}</span>
                                                                                                             </a><br /><div style="height: 8px"> </div>
 													{if ($product.id_product_attribute == 0 || (isset($add_prod_display) && ($add_prod_display == 1))) && $product.available_for_order && !isset($restricted_country_mode) && $product.minimal_quantity <= 1 && $product.customizable != 2 && !$PS_CATALOG_MODE}
 													{if ($product.allow_oosp || $product.quantity > 0)}
