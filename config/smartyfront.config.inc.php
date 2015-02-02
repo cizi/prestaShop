@@ -69,6 +69,20 @@ function smartyTranslate($params, &$smarty)
 
 	if ($params['sprintf'] !== null)
 		$msg = Translate::checkAndReplaceArgs($msg, $params['sprintf']);
-
+        
+        // call custom function
+        set_custom_translation();
 	return Translate::smartyPostProcessTranslation($params['js'] ? $msg : Tools::safeOutput($msg), $params);
+}
+
+/*
+ * 01-JAN-2015 - JC - addad
+ */
+function set_custom_translation()
+{
+    // přidat na figurínu
+    $_LANG["product_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+    $_LANG["product-list_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+    $_LANG["products-comparison_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+    $_LANG["postabcateslider_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
 }

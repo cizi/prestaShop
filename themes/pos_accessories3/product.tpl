@@ -376,6 +376,9 @@
 					<div class="box-cart-bottom">
 						<div class="box-cart-bottom-inner"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
 							<p id="add_to_cart" class="buttons_bottom_block no-print">
+                                                                <button type="submit" name="Add_to_man" class="button button-small" onclick="alert('na figurinu');">
+									<span><i class="fa-shopping-cart"></i>{l s='Add to manequin'}</span>
+								</button>
 								<button type="submit" name="Submit" class="button button-small">
 									<span><i class="fa fa-shopping-cart"></i>{l s='Add to cart'}</span>
 								</button>
