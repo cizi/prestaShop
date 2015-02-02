@@ -81,8 +81,18 @@ function smartyTranslate($params, &$smarty)
 function set_custom_translation()
 {
     // přidat na figurínu
-    $_LANG["product_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
-    $_LANG["product-list_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
-    $_LANG["products-comparison_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
-    $_LANG["postabcateslider_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+    if ($lang_iso == "cs")
+    {
+        $_LANG["product_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+        $_LANG["product-list_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+        $_LANG["products-comparison_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+        $_LANG["postabcateslider_15acbef01ae5eae34639ca871f6ec013"] = "Přidat na figurínu";
+    }
+    else
+    {
+        $_LANG["product_15acbef01ae5eae34639ca871f6ec013"] = "Add to mannequin";
+        $_LANG["product-list_15acbef01ae5eae34639ca871f6ec013"] = "Add to mannequin";
+        $_LANG["products-comparison_15acbef01ae5eae34639ca871f6ec013"] = "Add to mannequin";
+        $_LANG["postabcateslider_15acbef01ae5eae34639ca871f6ec013"] = "Add to mannequin";
+    }
 }
