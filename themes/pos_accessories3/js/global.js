@@ -356,14 +356,48 @@ function hover_manequin_off()
     $('#dressing_man').addClass('dressing_man');    
 }
 
-function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text)
+function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text, root_url)
 {
+    who_is_it = (id_customer != "") ? id_customer : id_guest;
+    if (who_is_it == "") return;
+    if (id == "") return;
     id_element = "man_btn_" + id;
-    if (id_lang="cs") 
-        $("#" + id_element).html("Zpracovávám...");
-    else
-        $("#" + id_element).html("Processing...");
     
-    // $("#" + id_element).html(original_text);
+    // lang
+    if (id_lang == "cs")
+    {
+        processing = "Zpracovávám...";
+        err = "Došlo k chybě při zpracování požadavku!";
+        added = "Přidáno!";
+    }
+    else
+    {
+        processing = "Processing...";
+        err = "An error occurred during processing your request!";
+        added = "Added!";
+    }
+    
+    $.ajax({
+        url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
+        type : 'GET',
+        data : {
+            'id' : who_is_it,
+            'id_product' : id
+        },
+        dataType:'json',
+        success : function(data) {
+            if (data === 0) 
+                alert(err);
+            else
+                $("#" + id_element).html(added);
+                
+        },
+        error : function(request,error)
+        {
+            //alert("Request: "+JSON.stringify(request));
+            alert(err);
+        }
+    });
+    // set default value
 }
 
