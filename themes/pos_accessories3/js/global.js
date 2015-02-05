@@ -401,3 +401,22 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
     // set default value
 }
 
+function open_dressing_room(lang_iso,id_guest,id_customer,base_dir)
+{
+    $("#dressing_cabin").css("display","block");
+}
+
+function close_dressing_room()
+{
+    $("#dressing_cabin").css("display","none");
+}
+
+function hover_close_dressing_on()
+{
+    $("#dressin_room_button").attr("src","../themes/pos_accessories3/img/close_red.png");
+}
+
+function hover_close_dressing_off()
+{
+    $("#dressin_room_button").attr("src","../themes/pos_accessories3/img/close.png");
+}

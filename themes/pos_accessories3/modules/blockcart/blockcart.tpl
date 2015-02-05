@@ -26,8 +26,12 @@
 {if isset($blockcart_top) && $blockcart_top}
 <div class="{if $PS_CATALOG_MODE} header_user_catalog{/if}">
 {/if}
+
+<div id="dressing_cabin" class="dressing_cabin">
+    <div id="close_cabin" class="close_cabin" onclick="close_dressing_room();" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();">zavřít <img id="dressin_room_button" class="close_dressing_button" src="../themes/pos_accessories3/img/close.png" /></div>
+</div>
         <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" ></span>
-        <span class="dressing_room" id="dressing_room" onclick="alert('Tady bude kabinka');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
+        <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
 	<div class="shopping_cart">
 		<div class="shopping_cart_inner">
 			<div class="shopping_cart_inner1">

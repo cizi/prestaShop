@@ -9030,3 +9030,19 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .page-product-box .accessories-block .bx-next:hover{background-position: 100% 100%;}
 .manequin{width: 160px!important;}
 .manequin_smaller{width: 150px!important; top: 1px; padding-left: 10px; line-height: 39px;}
+.dressing_cabin{
+    position: fixed; 
+    display: none; 
+    width: 86.5%; 
+    height: 90%; 
+    background-color: white; 
+    border-radius: 15px; 
+    top: 60px; 
+    left: 97px; 
+    z-index: 800;
+    -webkit-box-shadow: 3px -2px 31px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px -2px 31px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px -2px 31px 0px rgba(0,0,0,0.75);
+}
+.close_cabin{color: black; float: right; padding-right: 8px; top: 25px; font-weight: bold;}
+.close_dressing_button{width: 22px; height: 22px;}
