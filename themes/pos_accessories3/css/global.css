@@ -9029,4 +9029,4 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .page-product-box .accessories-block .bx-next{right: 10px;}
 .page-product-box .accessories-block .bx-next:hover{background-position: 100% 100%;}
 .manequin{width: 160px!important;}
-.manequin_smaller{width: 150px!important;}
+.manequin_smaller{width: 150px!important; top: 1px; padding-left: 10px; line-height: 39px;}

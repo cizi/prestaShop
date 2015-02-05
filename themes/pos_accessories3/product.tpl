@@ -371,14 +371,13 @@
 						<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 							{l s='This product is not sold individually. You must select at least'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b> {l s='quantity for this product.'}
 						</p>
-						
 					</div> <!-- end product_attributes -->
 					<div class="box-cart-bottom">
 						<div class="box-cart-bottom-inner"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
 							<p id="add_to_cart" class="buttons_bottom_block no-print">
-                                                                <button type="submit" name="Add_to_man" class="button button-small manequin_smaller" onclick="flee_to_the_manequin('{$lang_iso}','{$product->id}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}','{$base_dir}');">
+                                                                <span type="button" name="Add_to_man" class="button button-small manequin_smaller" onclick="flee_to_the_manequin('{$lang_iso}','{$product->id}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}','{$base_dir}');">
                                                                     <span><i class="fa-shopping-cart"></i><span id="man_btn_{$product->id}">{l s='Add to manequin'}</span></span>
-								</button>
+								</span>
 								<button type="submit" name="Submit" class="button button-small">
 									<span><i class="fa fa-shopping-cart"></i>{l s='Add to cart'}</span>
 								</button>
