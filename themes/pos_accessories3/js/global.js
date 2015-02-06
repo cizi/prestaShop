@@ -401,8 +401,17 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
     // set default value
 }
 
-function open_dressing_room(lang_iso,id_guest,id_customer,base_dir)
+function open_dressing_room(id_lang,id_guest,id_customer,base_dir)
 {
+    if (id_lang == "cs" )
+    {
+        btn_close_label = "zavřít";
+    }
+    else
+    {
+        btn_close_label = "close";
+    }
+    $("#cls_bnt").html(btn_close_label);
     $("#dressing_cabin").css("display","block");
 }
 
