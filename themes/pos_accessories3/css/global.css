@@ -7549,8 +7549,8 @@ color: #999;
 #header .shopping_cart .ajax_cart_product_txt, #header .shopping_cart .ajax_cart_product_txt_s{}
 .cart_last_product {
   display: none!important;}
-.dressing_room {color: #555;font-weight: normal; font-family: 'BebasNeuewebfont'; font-size: 19px; text-transform: uppercase; display: inline-block; position: absolute; margin-top: 6px}
-.dressing_room_on {color: #e48080;font-weight: normal; font-family: 'BebasNeuewebfont'; font-size: 19px; text-transform: uppercase; display: inline-block; position: absolute; margin-top: 6px}
+.dressing_room {color: #555;font-weight: normal; font-family: 'BebasNeuewebfont'; font-size: 18px; text-transform: uppercase; display: inline-block; position: absolute; margin-top: 7px}
+.dressing_room_on {color: #e48080;font-weight: normal; font-family: 'BebasNeuewebfont'; font-size: 18px; text-transform: uppercase; display: inline-block; position: absolute; margin-top: 7px}
 .dressing_man { display: inline-block; width: 22px; height: 48px; background: url(../img/manequin.png) no-repeat; }
 .dressing_man_on { display: inline-block; width: 22px; height: 48px; background: url(../img/manequin_orange.png) no-repeat; }
 #header .shopping_cart_inner a.tile-cart{display: block; font-size: 14px; float: left; padding: 6px 0 0 50px; background: url(../img/mycart.png) no-repeat 11px 9px; text-align: left; }
@@ -9046,3 +9046,4 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 }
 .close_cabin{color: black; float: right; padding-right: 8px; top: 25px; font-weight: bold;}
 .close_dressing_button{width: 22px; height: 22px;}
+.close_cabin span{line-height: 40px; font-size: 13px;}
