@@ -9047,3 +9047,5 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .close_cabin{color: black; float: right; padding-right: 8px; top: 25px; font-weight: bold;}
 .close_dressing_button{width: 22px; height: 22px;}
 .close_cabin span{line-height: 40px; font-size: 13px;}
+.mannequin_playground{ background: url(../img/mannequin.png) no-repeat; width: 413px; height: 600px; z-index: 900; position: absolute; top: 40px; left: 30px;}
+.rags{position: absolute; top: 40px; left: 470px;}

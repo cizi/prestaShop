@@ -28,10 +28,16 @@
 {/if}
 
 <div id="dressing_cabin" class="dressing_cabin">
-    <div id="close_cabin" class="close_cabin" onclick="close_dressing_room();" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();"><span id="cls_bnt"></span> <img id="dressin_room_button" class="close_dressing_button" src="../themes/pos_accessories3/img/close.png" /></div>
+    <div id="close_cabin" class="close_cabin" onclick="close_dressing_room();" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();"><span id="cls_bnt"></span> <img id="dressin_room_button" class="close_dressing_button" src="../themes/pos_accessories3/img/close.png" />
+        <div id="dressing_room_content">
+            <div class="mannequin_playground"></div>
+            <div id="wardrobe" class="rags"></div>
+                
+        </div>
+    </div>
 </div>
-        <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" ></span>
-        <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
+        <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe', true);"></span>
+        <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe', true);" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
 	<div class="shopping_cart">
 		<div class="shopping_cart_inner">
 			<div class="shopping_cart_inner1">

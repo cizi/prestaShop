@@ -379,10 +379,11 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
     
     $.ajax({
         url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
-        type : 'GET',
+        type : 'POST',
         data : {
             'id' : who_is_it,
-            'id_product' : id
+            'id_product' : id,
+            'action' : 'insert'
         },
         dataType:'json',
         success : function(data) {
@@ -398,21 +399,49 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
             alert(err);
         }
     });
-    // set default value
 }
 
-function open_dressing_room(id_lang,id_guest,id_customer,base_dir)
+function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element, refresh)
 {
     if (id_lang == "cs" )
     {
         btn_close_label = "zavřít";
+        err = "Došlo k chybě při zpracování požadavku!";
     }
     else
     {
         btn_close_label = "close";
+        err = "An error occurred during processing your request!";
     }
+    
+    // get me all items for customer
+    who_is_it = (id_customer != "") ? id_customer : id_guest;
+    if (who_is_it === "") return;
+    if (target_element === "") return;
+    $.ajax({
+        url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
+        type : 'POST',
+        data : {
+            'id' : who_is_it,
+            'action' : 'list'
+        },
+        dataType:'json',
+        success : function(data) {
+            //$("#" + target_element).text("data");
+            make_wardrobe(id_lang,id_guest,id_customer,root_url,target_element, data);
+        },
+        error : function(request,error)
+        {
+            //alert("Request: "+JSON.stringify(request));
+            alert(err);
+        }
+    });
+    
     $("#cls_bnt").html(btn_close_label);
-    $("#dressing_cabin").css("display","block");
+    if (refresh)
+    {
+        $("#dressing_cabin").css("display","block");
+    }
 }
 
 function close_dressing_room()
@@ -428,4 +457,41 @@ function hover_close_dressing_on()
 function hover_close_dressing_off()
 {
     $("#dressin_room_button").attr("src","../themes/pos_accessories3/img/close.png");
+}
+
+function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element, rags)
+{
+    if (target_element === "") return;
+    if (rags == null) return;
+    var html = "<table>";
+    $.each(rags, function(idx, obj) { 
+        html += "<tr><td><a href='#' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>" + obj.id_record + "</a></td><td>" + obj.id_product + "</td></tr>";
+    });
+    html += "</table>";
+    $("#" + target_element).html(html);
+}
+
+function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, id_record)
+{
+    if (id_record === "") return;
+    $.ajax({
+        url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
+        type : 'POST',
+        data : {
+            'id_record' : id_record,
+            'action' : 'remove'
+        },
+        dataType:'json',
+        success : function(data) {
+            if (data === 0) 
+                alert(err);
+            else
+                open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element,false);
+        },
+        error : function(request,error)
+        {
+            //alert("Request: "+JSON.stringify(request));
+            alert(err);
+        }
+    });
 }

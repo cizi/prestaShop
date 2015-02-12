@@ -22,21 +22,31 @@ dibi::connect(array(
     'charset'  => 'utf8',
 ));
 
-
 // validated input
-$id_customer = filter_input(INPUT_GET,'id');
-$id_product = filter_input(INPUT_GET,'id_product');
+$id_customer = filter_input(INPUT_POST,'id');
+$id_product = filter_input(INPUT_POST,'id_product');
+$action_shortcut = filter_input(INPUT_POST,'action');
+$id_record = filter_input(INPUT_POST,'id_record');
 
-if (empty($id_customer) || empty($id_product))
+if (empty($action_shortcut)) return 1;
+
+switch ($action_shortcut) 
 {
-    echo 0; 
-    return;
+    case "insert":         // inserting
+        if (empty($id_customer) || empty($id_product)) return 1;
+        echo insert_in_dressing_room($id_customer, $id_product);
+        break;
+    case "remove":
+        if (empty($id_record)) return 1;
+        echo remove_from_dressing_room($id_record);
+        break;
+    case "list":
+        if (empty($id_customer)) return 1;
+        echo json_encode(list_dressing_room($id_customer));
+        break;
 }
-else 
-{
-    echo insert_in_dressing_room($id_customer, $id_product);
-    return;
-}
+
+return;
 
 function insert_in_dressing_room($customer, $product)
 {
@@ -57,4 +67,32 @@ function insert_in_dressing_room($customer, $product)
     return ($res === 1) ? $res : 0;
 }
 
+
+function remove_from_dressing_room($id_rec)
+{
+    if ($id_rec == "") return 0;
+    $result = dibi::query('DELETE FROM `ps_custom_maneq` WHERE `id`=%i', $id_rec);
+    return ($result === 1) ? $result : 0;
+}
+
+function list_dressing_room($customer)
+{
+    $output = array();
+    $result = dibi::query('SELECT `id`,`id_product` FROM `ps_custom_maneq` WHERE `id_customer`=%s', $customer);
+    foreach ($result as $n => $row) 
+    {
+        $output[] = array('id_record' => $row['id'], 'id_product' => $row['id_product']);
+    }
+    
+    // return
+    if (empty($output))
+    {
+        return 0;
+    }
+    else
+    {
+        return $output;
+    }
+    
+}
 ?>
