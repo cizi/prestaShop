@@ -465,7 +465,7 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
     if (rags == null) return;
     var html = "<table>";
     $.each(rags, function(idx, obj) { 
-        html += "<tr><td><a href='#' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>" + obj.id_record + "</a></td><td>" + obj.id_product + "</td></tr>";
+        html += "<tr><td><span onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>" + obj.id_record + "</span></td><td>" + obj.id_product + "</td></tr>";
     });
     html += "</table>";
     $("#" + target_element).html(html);

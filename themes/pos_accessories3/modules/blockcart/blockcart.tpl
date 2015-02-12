@@ -28,7 +28,7 @@
 {/if}
 
 <div id="dressing_cabin" class="dressing_cabin">
-    <div id="close_cabin" class="close_cabin" onclick="close_dressing_room();" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();"><span id="cls_bnt"></span> <img id="dressin_room_button" class="close_dressing_button" src="../themes/pos_accessories3/img/close.png" />
+    <div id="close_cabin" class="close_cabin"><span onclick="close_dressing_room();" id="cls_bnt" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();"></span> <img id="dressin_room_button" class="close_dressing_button" src="../themes/pos_accessories3/img/close.png" onclick="close_dressing_room();" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();" />
         <div id="dressing_room_content">
             <div class="mannequin_playground"></div>
             <div id="wardrobe" class="rags"></div>
