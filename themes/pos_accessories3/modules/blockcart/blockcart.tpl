@@ -36,17 +36,17 @@
         </div>
     </div>
 </div>
-        <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe', true);"></span>
-        <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe', true);" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
+        <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');"></span>
+        <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
 	<div class="shopping_cart">
 		<div class="shopping_cart_inner">
 			<div class="shopping_cart_inner1">
 			<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" class="tile-cart" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 			<b>{l s='Košík' mod='blockcart'}</b>
 			<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>
-			<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='item - ' mod='blockcart'}</span>
-			<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='items - ' mod='blockcart'}</span>
-			<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}">{l s='0 item - ' mod='blockcart'}</span>
+			<span class="ajax_cart_product_txt{if $cart_qties != 1} unvisible{/if}">{l s='položka -' mod='blockcart'} </span>
+			<span class="ajax_cart_product_txt_s{if $cart_qties < 2} unvisible{/if}">{l s='položky -' mod='blockcart'} </span>
+			<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}">{l s='0 položek -' mod='blockcart'} </span>
 			<span class="ajax_cart_total{if $cart_qties == 0} unvisible{/if}">
 				{if $cart_qties == 0}
 					{assign var='blockcart_cart_flag' value='Cart::BOTH_WITHOUT_SHIPPING'|constant}

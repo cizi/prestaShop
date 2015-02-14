@@ -401,7 +401,7 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
     });
 }
 
-function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element, refresh)
+function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element)
 {
     if (id_lang == "cs" )
     {
@@ -438,10 +438,7 @@ function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element
     });
     
     $("#cls_bnt").html(btn_close_label);
-    if (refresh)
-    {
-        $("#dressing_cabin").css("display","block");
-    }
+    $("#dressing_cabin").css("display","block");
 }
 
 function close_dressing_room()
@@ -486,7 +483,7 @@ function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, tar
             if (data === 0) 
                 alert(err);
             else
-                open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element,false);
+                open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element);
         },
         error : function(request,error)
         {
