@@ -99,7 +99,76 @@
 		</thead>
 		<tbody id="imageList">
 		</tbody>
-	</table>
+	</table><br /><br /><br /><br />
+        <fieldset>
+            <legend>Obrázek na figurínu</legend>
+            <table>
+            <tr>
+                <td colspan="2">  
+                    <form method="post" enctype="multipart/form-data" id="man_form">
+                        <input name="file" type="file" id="man_file"/><br />
+                        Vyber vrstvu: <select name="man_layer" id="man_layer">
+                            {for $i=1 to 99}
+                                <option value="{$i}">{$i}</option>
+                            {/for}
+                        </select><br />
+                        <input type="button" value="Nahrát" id="start_man_upload" />
+                        <progress id="man_upload_prog"></progress>
+                        <input type="hidden" name="man_prod_id" id="man_prod_id" value="{$smarty.get.id_product}" />
+                    </form>
+                </td>
+            </tr>
+            </table>
+        </fieldset>
+        <script type="text/javascript">
+            $('#man_file').change(function(){
+                var file = this.files[0];
+                var name = file.name;
+                var size = file.size;
+                var type = file.type;
+                // validation?
+                var ext = name.split('.').pop().toLowerCase();
+                if($.inArray(ext, ['gif','png','jpg','jpeg']) === -1) {
+                    $('#man_file').prop("value", "");
+                    alert('invalid extension!');
+                }
+            });
+            $('#start_man_upload').click(function(){
+                var file_name = $('#man_file').prop("value");
+                if (file_name === "") return;
+                var formData = new FormData();
+                formData.append('file', $('#man_file').prop('files')[0]);
+                formData.append('id_product',$('#man_prod_id').prop("value"));
+                formData.append('image_layer',$('#man_layer').prop("value"));
+                $.ajax({
+                    url: '../custom_sw/manequin_engine/mannequin_imager.php',  //Server script to process data
+                    type: 'POST',
+                    xhr: function() {  // Custom XMLHttpRequest
+                        var myXhr = $.ajaxSettings.xhr();
+                        if(myXhr.upload){ // Check if upload property exists
+                            myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
+                        }
+                        return myXhr;
+                    },
+                    //Ajax events
+                    success: function(data)
+                    {
+                        //alert(data);
+                    },
+                    error: function(request,error)
+                    {
+                        alert("Request: "+JSON.stringify(request));
+                        //alert("error");
+                    },
+                    // Form data
+                    data: formData,
+                    //Options to tell jQuery not to process data or worry about content-type.
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+        </script>
 	<table id="lineType" style="display:none;">
 		<tr id="image_id">
 			<td>

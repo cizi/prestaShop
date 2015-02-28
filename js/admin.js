@@ -1447,3 +1447,11 @@ function isCleanHtml(content)
 function parseDate(date){
 	return $.datepicker.parseDate("yy-mm-dd", date);
 }
+
+function progressHandlingFunction(e)
+{
+    if(e.lengthComputable)
+    {
+        $('#man_upload_prog').attr({value:e.loaded,max:e.total});
+    }
+}

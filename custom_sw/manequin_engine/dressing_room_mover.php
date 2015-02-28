@@ -11,16 +11,7 @@
 
 require_once '../../config/settings.inc.php';
 require_once '../dibi/vendor/autoload.php';
-
-// DB settings & connecting
-dibi::connect(array(
-    'driver'   => 'mysql',
-    'host'     => _DB_SERVER_,
-    'username' => _DB_USER_,
-    'password' => _DB_PASSWD_,
-    'database' => _DB_NAME_,
-    'charset'  => 'utf8',
-));
+require_once './inc/db.inc.php';
 
 // validated input
 $id_customer = filter_input(INPUT_POST,'id');
@@ -63,7 +54,7 @@ function insert_in_dressing_room($customer, $product)
         'id_customer' => $customer,
         'id_product'  => $product,
     );
-    $res = dibi::query('INSERT INTO ps_custom_maneq', $data);
+    $res = dibi::query('INSERT INTO `ps_custom_maneq`', $data);
     return ($res === 1) ? $res : 0;
 }
 
