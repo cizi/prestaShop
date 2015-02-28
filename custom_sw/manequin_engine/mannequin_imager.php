@@ -20,7 +20,7 @@ $suffix = "manneq";
 $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
 $file_target = '../../img/man/'.$id_leyer."-".$id_product."-".$suffix.".".$extension;
-$file_location_for_db = './img/man/'.$id_leyer."-".$id_product."-".$suffix.".".$extension;
+$file_location_for_db = 'img/man/'.$id_leyer."-".$id_product."-".$suffix.".".$extension;
 File::Upload($file_tmp,$file_target);
 
 // insert
@@ -28,6 +28,7 @@ $data = array(
     'id' => '',
     'id_product'  => $id_product,
     'path' => $file_location_for_db,
+    'layer' => $id_leyer,
 );
 
 $res = dibi::query('INSERT INTO `ps_custom_maneq_image`', $data);

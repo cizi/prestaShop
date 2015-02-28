@@ -1455,3 +1455,67 @@ function progressHandlingFunction(e)
         $('#man_upload_prog').attr({value:e.loaded,max:e.total});
     }
 }
+
+function uploader_or_shower(id_product)
+{
+    if (id_product === "") return;
+
+    $.ajax({
+        url : '../custom_sw/manequin_engine/get_mannequin_image.php',
+        type : 'POST',
+        data : {
+            'id_product' : id_product,
+            'action' : 'get'
+        },
+        dataType:'json',
+        success : function(data) {
+            if (data !== 0)
+            {
+                var html = "";
+                $.each(data, function(idx, obj) { 
+                    html += '<img src="../' + obj.image_path + '" />&nbsp;&nbsp;&nbsp;<button onclick="discard_mannequin_image(' + obj.id_record + ',' + id_product + ');" type="button">Odstranit</button><br />';
+                });
+                $('#man_shower').html(html);
+                $('#man_uploader').css("display","none");
+                $('#man_shower').css("display","block");
+            }
+            else
+            {
+                $('#man_uploader').css("display","block");
+                $('#man_shower').css("display","none");
+            }
+        },
+        error : function(request,error)
+        {
+            //alert("Request: "+JSON.stringify(request));
+            alert("Error");
+        }
+    });
+}
+
+function discard_mannequin_image(id_record,id_product)
+{
+    if (id_record === "") return;
+    if (id_product === "") return;
+    
+    $.ajax({
+        url : '../custom_sw/manequin_engine/get_mannequin_image.php',
+        type : 'POST',
+        data : {
+            'id_rec' : id_record,
+            'action' : 'remove'
+        },
+        dataType:'json',
+        success : function(data) {
+            if (data === 1)
+            {
+                uploader_or_shower(id_product);
+            }
+        },
+        error : function(request,error)
+        {
+            alert("Request: "+JSON.stringify(request));
+            //alert("Error");
+        }
+    });
+}

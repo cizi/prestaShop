@@ -102,7 +102,7 @@
 	</table><br /><br /><br /><br />
         <fieldset>
             <legend>Obrázek na figurínu</legend>
-            <table>
+            <table id="man_uploader">
             <tr>
                 <td colspan="2">  
                     <form method="post" enctype="multipart/form-data" id="man_form">
@@ -119,8 +119,14 @@
                 </td>
             </tr>
             </table>
+            <div id="man_shower">
+                
+                
+            </div>
         </fieldset>
         <script type="text/javascript">
+            uploader_or_shower($('#man_prod_id').prop("value"));
+            
             $('#man_file').change(function(){
                 var file = this.files[0];
                 var name = file.name;
@@ -153,12 +159,15 @@
                     //Ajax events
                     success: function(data)
                     {
-                        //alert(data);
+                        if (data === 0) 
+                            alert("Error");
+                        else
+                            uploader_or_shower($('#man_prod_id').prop("value"));
                     },
                     error: function(request,error)
                     {
-                        alert("Request: "+JSON.stringify(request));
-                        //alert("error");
+                        //alert("Request: "+JSON.stringify(request));
+                        alert("Error");
                     },
                     // Form data
                     data: formData,
