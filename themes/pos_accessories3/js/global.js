@@ -364,18 +364,7 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
     id_element = "man_btn_" + id;
     
     // lang
-    if (id_lang == "cs")
-    {
-        processing = "Zpracovávám...";
-        err = "Došlo k chybě při zpracování požadavku!";
-        added = "Přidáno!";
-    }
-    else
-    {
-        processing = "Processing...";
-        err = "An error occurred during processing your request!";
-        added = "Added!";
-    }
+    set_translation(id_lang);
     
     $.ajax({
         url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
@@ -403,16 +392,7 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
 
 function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element)
 {
-    if (id_lang == "cs" )
-    {
-        btn_close_label = "zavřít";
-        err = "Došlo k chybě při zpracování požadavku!";
-    }
-    else
-    {
-        btn_close_label = "close";
-        err = "An error occurred during processing your request!";
-    }
+    set_translation(id_lang);
     
     // get me all items for customer
     who_is_it = (id_customer != "") ? id_customer : id_guest;
@@ -458,11 +438,27 @@ function hover_close_dressing_off()
 
 function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element, rags)
 {
+    set_translation(id_lang);
     if (target_element === "") return;
     if (rags == null) return;
-    var html = "<table>";
+    var html = "<table cellpadding='4'>";
+    var columner = 0;
     $.each(rags, function(idx, obj) { 
-        html += "<tr><td><span onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>" + obj.id_record + "</span></td><td>" + obj.id_product + "</td></tr>";
+        if (columner%2 === 0) html += "<tr>";
+        html += "<td></td><td>";
+        
+        html += "<img class='dr_images' src='" + obj.image_path + "' />";
+        
+        html += "<a class='button button-small manequin_smaller dr_tiny_button' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
+	html += "<i class='fa fa-shopping-cart'></i>" + add_to_cart + "</a>&nbsp;&nbsp;";
+        
+        html += "<span type='button' class='button button-small manequin_smaller dr_tiny_button' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>";
+        html += remove_from + "</span>";
+        
+        
+        html += "</td>";
+        if (columner%2 === 1) html += "</tr>";
+        columner++;
     });
     html += "</table>";
     $("#" + target_element).html(html);
@@ -491,4 +487,27 @@ function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, tar
             alert(err);
         }
     });
+}
+
+function set_translation(language)
+{
+    if (language === "") return;
+    if (language === "cs")
+    {
+        remove_from = "Pryč ze šatny";
+        btn_close_label = "zavřít";
+        err = "Došlo k chybě při zpracování požadavku!";
+        processing = "Zpracovávám...";
+        added = "Přidáno!";
+        add_to_cart = "Do košíku";
+    }
+    else
+    {
+        remove_from = "Remove from here";
+        btn_close_label = "close";
+        err = "An error occurred during processing your request!";
+        processing = "Processing...";
+        added = "Added!";
+        add_to_cart = "To cart";
+    }
 }
