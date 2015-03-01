@@ -9050,4 +9050,5 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .mannequin_playground{ background: url(../img/mannequin.png) no-repeat; width: 413px; height: 600px; z-index: 900; position: absolute; top: 40px; left: 30px;}
 .rags{position: absolute; top: 40px; left: 470px;}
 .dr_images{width: 25%; height: 25%; float: left;}
-.dr_tiny_button{width: 115px!important; font-family: opensans!important; font-size: 10px!important; text-transform: uppercase; float: right}
+.dr_tiny_button{width: 115px!important; float: right}
+.dr_font{font-family: opensans!important; font-size: 10px!important; text-transform: uppercase; }

@@ -449,10 +449,10 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
         
         html += "<img class='dr_images' src='" + obj.image_path + "' />";
         
-        html += "<a class='button button-small manequin_smaller dr_tiny_button' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
-	html += "<i class='fa fa-shopping-cart'></i>" + add_to_cart + "</a>&nbsp;&nbsp;";
+        html += "<a class='button button-small manequin_smaller ajax_add_to_cart_button dr_tiny_button dr_font' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
+	html += "<i class='fa fa-shopping-cart'></i><span class='dr_font'>" + add_to_cart + "</span></a>&nbsp;&nbsp;";
         
-        html += "<span type='button' class='button button-small manequin_smaller dr_tiny_button' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>";
+        html += "<span type='button' class='button button-small manequin_smaller dr_tiny_button dr_font' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>";
         html += remove_from + "</span>";
         
         
