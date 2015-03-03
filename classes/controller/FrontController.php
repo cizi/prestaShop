@@ -758,6 +758,7 @@ class FrontControllerCore extends Controller
 		$this->addjqueryPlugin('easing');
 		$this->addJS(_PS_JS_DIR_.'tools.js');
 		$this->addJS(_THEME_JS_DIR_.'global.js');
+                $this->addJS(_THEME_JS_DIR_.'man_engine.js');
 
 		// Automatically add js files from js/autoload directory in the template
 		if (@filemtime($this->getThemeDir().'js/autoload/'))
