@@ -447,7 +447,7 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
         if (columner%2 === 0) html += "<tr>";
         html += "<td></td><td>";
         
-        html += "<img class='dr_images' src='" + obj.image_path + "' />";
+        html += "<img class='dr_images' src='" + obj.image_path + "'  onclick=\"dress_it('" + obj.layer + "','" + obj.image_path + "');\" />";
         
         html += "<a class='button button-small manequin_smaller ajax_add_to_cart_button dr_tiny_button dr_font' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
 	html += "<i class='fa fa-shopping-cart'></i><span class='dr_font'>" + add_to_cart + "</span></a>&nbsp;&nbsp;";
