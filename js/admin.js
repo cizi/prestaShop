@@ -1448,15 +1448,23 @@ function parseDate(date){
 	return $.datepicker.parseDate("yy-mm-dd", date);
 }
 
-function progressHandlingFunction(e)
+function progressHandlingFunctionFront(e)
 {
     if(e.lengthComputable)
     {
-        $('#man_upload_prog').attr({value:e.loaded,max:e.total});
+        $('#man_upload_prog_front').attr({value:e.loaded,max:e.total});
     }
 }
 
-function uploader_or_shower(id_product)
+function progressHandlingFunctionBack(e)
+{
+    if(e.lengthComputable)
+    {
+        $('#man_upload_prog_back').attr({value:e.loaded,max:e.total});
+    }
+}
+
+function uploader_or_shower(id_product, side)
 {
     if (id_product === "") return;
 
@@ -1465,24 +1473,26 @@ function uploader_or_shower(id_product)
         type : 'POST',
         data : {
             'id_product' : id_product,
+            'side' :  (side === "front") ? 1 : 0,
             'action' : 'get'
         },
         dataType:'json',
         success : function(data) {
             if (data !== 0)
             {
-                var html = "";
+                html = "";
                 $.each(data, function(idx, obj) { 
-                    html += '<img src="../' + obj.image_path + '" />&nbsp;&nbsp;&nbsp;<button onclick="discard_mannequin_image(' + obj.id_record + ',' + id_product + ');" type="button">Odstranit</button><br />';
+                    position_label = (side === "front") ? "<h3>Přední</h3>" : "<h3>Zadní</h3>";
+                    html += position_label + '<img src="../' + obj.image_path + '" />&nbsp;&nbsp;&nbsp;<button onclick="discard_mannequin_image(' + obj.id_record + ',' + id_product + ',\'' + side + '\');" type="button">Odstranit</button><br />';
                 });
-                $('#man_shower').html(html);
-                $('#man_uploader').css("display","none");
-                $('#man_shower').css("display","block");
+                $('#man_shower_' + side).html(html);
+                $('#man_uploader_' + side).css("display","none");
+                $('#man_shower_' + side).css("display","block");
             }
             else
             {
-                $('#man_uploader').css("display","block");
-                $('#man_shower').css("display","none");
+                $('#man_uploader_' + side).css("display","block");
+                $('#man_shower_' + side).css("display","none");
             }
         },
         error : function(request,error)
@@ -1493,7 +1503,7 @@ function uploader_or_shower(id_product)
     });
 }
 
-function discard_mannequin_image(id_record,id_product)
+function discard_mannequin_image(id_record,id_product,image_placement)
 {
     if (id_record === "") return;
     if (id_product === "") return;
@@ -1509,13 +1519,70 @@ function discard_mannequin_image(id_record,id_product)
         success : function(data) {
             if (data === 1)
             {
-                uploader_or_shower(id_product);
+                uploader_or_shower(id_product,image_placement,image_placement);
             }
         },
         error : function(request,error)
         {
-            alert("Request: "+JSON.stringify(request));
-            //alert("Error");
+            //alert("Request: "+JSON.stringify(request));
+            alert("Error");
         }
     });
 }
+
+function upload_man_image(id_file_element, id_layer_element, image_placement)
+{
+    var file = $('#' + id_file_element).prop('files')[0];
+    var name = file.name;
+    if ($('#' + id_file_element).prop("value") === "") return;
+    var size = file.size;
+    var type = file.type;
+    // validation?
+    var ext = name.split('.').pop().toLowerCase();
+    if($.inArray(ext, ['gif','png','jpg','jpeg']) === -1) {
+        $('#' + id_file_element).prop("value", "");
+        alert('invalid extension!');
+        return;
+    }
+                
+    // data preparing
+    formData = new FormData();
+    formData.append('file', $('#' + id_file_element).prop('files')[0]);
+    formData.append('id_product',$('#man_prod_id').prop("value"));
+    formData.append('image_layer',$('#' + id_layer_element).prop("value"));
+    formData.append('image_position',image_placement);
+    
+    $.ajax({
+        url: '../custom_sw/manequin_engine/mannequin_imager.php',  //Server script to process data
+        type: 'POST',
+        xhr: function() {  // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if(myXhr.upload){ // Check if upload property exists
+                if (image_placement === "front")
+                    myXhr.upload.addEventListener('progress',progressHandlingFunctionFront, false); // For handling the progress of the upload
+                else
+                    myXhr.upload.addEventListener('progress',progressHandlingFunctionBack, false); // For handling the progress of the upload
+            }
+            return myXhr;
+        },
+        //Ajax events
+        success: function(data)
+        {
+            if (data === 0) 
+                alert("Error");
+            else
+                uploader_or_shower($('#man_prod_id').prop("value"), image_placement);
+        },
+        error: function(request,error)
+        {
+            alert("Request: "+JSON.stringify(request));
+            alert("Error");
+        },
+        // Form data
+        data: formData,
+        //Options to tell jQuery not to process data or worry about content-type.
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+}           

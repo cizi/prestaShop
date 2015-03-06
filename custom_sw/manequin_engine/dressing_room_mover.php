@@ -69,11 +69,27 @@ function remove_from_dressing_room($id_rec)
 function list_dressing_room($customer)
 {
     $output = array();
-    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path`,`layer` FROM `ps_custom_maneq` INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` WHERE `id_customer`=%s', $customer);
+    // get front image
+    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer` '
+            . 'FROM `ps_custom_maneq` '
+                . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '
+            . 'WHERE `id_customer`=%s', $customer, ' AND `front_image`=%i', 1);
     foreach ($result as $n => $row) 
     {
-        $output[] = array('id_record' => $row['id'], 'id_product' => $row['id_product'], 'image_path' => $row['path'], 'layer' => $row['layer']);
+        $front = array('id_record' => $row['id'], 'id_product' => $row['id_product'], 'front_image_path' => $row['front_image'], 'layer' => $row['layer'], 'front_image' => $row['front_image']);
     }
+    
+    // get back image
+    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as back_image,`layer` '
+            . 'FROM `ps_custom_maneq` '
+                . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '
+            . 'WHERE `id_customer`=%s', $customer, ' AND `front_image`=%i', 0);
+    foreach ($result as $n => $row) 
+    {
+        $back = array('back_image_path' => $row['back_image']);
+    }
+    
+    $output[] = array_merge($front, $back);
     
     // return
     if (empty($output))

@@ -16,6 +16,8 @@ require_once './inc/file.class.php';
 $id_prod = filter_input(INPUT_POST, 'id_product');
 $action = filter_input(INPUT_POST, 'action');
 $id_rec = filter_input(INPUT_POST, 'id_rec');
+$side = filter_input(INPUT_POST, 'side');
+
 
 if (empty($action))
 {
@@ -26,7 +28,7 @@ else
     switch ($action)
     {
         case "get":
-            echo get_mannequin_image($id_prod);
+            echo get_mannequin_image($id_prod, $side);
         break;
         case "remove":
             echo discard_mannequin_image($id_rec);
@@ -35,11 +37,11 @@ else
 }
 
 
-function get_mannequin_image($id_product)
+function get_mannequin_image($id_product, $image_side = 1)
 {
     if (empty($id_product)) return 0;
     $output = array();
-    $result = dibi::query('SELECT `id`, `path` FROM `ps_custom_maneq_image` WHERE `id_product`=%i', $id_product);
+    $result = dibi::query('SELECT `id`, `path` FROM `ps_custom_maneq_image` WHERE `id_product`=%i', $id_product, ' AND `front_image`=%i', $image_side);
     foreach ($result as $n => $row) 
     {
         $output[] = array('id_record' => $row['id'], 'image_path' => $row['path']);

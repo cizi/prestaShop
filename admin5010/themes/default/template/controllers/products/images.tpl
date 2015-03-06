@@ -102,81 +102,51 @@
 	</table><br /><br /><br /><br />
         <fieldset>
             <legend>Obrázek na figurínu</legend>
-            <table id="man_uploader">
+            <input type="hidden" name="man_prod_id" id="man_prod_id" value="{$smarty.get.id_product}" /><br />
+            <table id="man_uploader_front">
+                <tr><td colspan="2">&nbsp;&nbsp;&nbsp;<h3>Přední</h3></td></tr>
             <tr>
                 <td colspan="2">  
                     <form method="post" enctype="multipart/form-data" id="man_form">
-                        <input name="file" type="file" id="man_file"/><br />
-                        Vyber vrstvu: <select name="man_layer" id="man_layer">
+                        <input name="file" type="file" id="man_file_front"/><br />
+                        Vyber vrstvu: <select name="man_layer" id="man_layer_front">
                             {for $i=1 to 99}
                                 <option value="{$i}">{$i}</option>
                             {/for}
                         </select><br />
-                        <input type="button" value="Nahrát" id="start_man_upload" />
-                        <progress id="man_upload_prog"></progress>
-                        <input type="hidden" name="man_prod_id" id="man_prod_id" value="{$smarty.get.id_product}" />
+                        <input type="button" value="Nahrát" onclick="upload_man_image('man_file_front', 'man_layer_front', 'front');" />
+                        <input type="hidden" name="man_image_position" id="man_image_position" value="front" />
+                        <progress id="man_upload_prog_front"></progress>
                     </form>
                 </td>
             </tr>
             </table>
-            <div id="man_shower">
-                
-                
-            </div>
+            <div id="man_shower_front"></div>
+            <br /><br />
+            <table id="man_uploader_back">
+            <tr>
+            <tr><td colspan="2">&nbsp;&nbsp;&nbsp;<h3>Zadní</h3></td></tr>
+                <td colspan="2">  
+                    <form method="post" enctype="multipart/form-data" id="man_form">
+                        <input name="file" type="file" id="man_file_back"/><br />
+                        Vyber vrstvu: <select name="man_layer" id="man_layer_back">
+                            {for $i=1 to 99}
+                                <option value="{$i}">{$i}</option>
+                            {/for}
+                        </select><br />
+                        <input type="button" value="Nahrát" onclick="upload_man_image('man_file_back', 'man_layer_back', 'back');" />
+                        <input type="hidden" name="man_image_position" id="man_image_position" value="back" />
+                        <progress id="man_upload_prog_back"></progress>
+                    </form>
+                </td>
+            </tr>
+            </table>
+            <div id="man_shower_back"></div>                        
+                        
         </fieldset>
         <script type="text/javascript">
-            uploader_or_shower($('#man_prod_id').prop("value"));
-            
-            $('#man_file').change(function(){
-                var file = this.files[0];
-                var name = file.name;
-                var size = file.size;
-                var type = file.type;
-                // validation?
-                var ext = name.split('.').pop().toLowerCase();
-                if($.inArray(ext, ['gif','png','jpg','jpeg']) === -1) {
-                    $('#man_file').prop("value", "");
-                    alert('invalid extension!');
-                }
-            });
-            $('#start_man_upload').click(function(){
-                var file_name = $('#man_file').prop("value");
-                if (file_name === "") return;
-                var formData = new FormData();
-                formData.append('file', $('#man_file').prop('files')[0]);
-                formData.append('id_product',$('#man_prod_id').prop("value"));
-                formData.append('image_layer',$('#man_layer').prop("value"));
-                $.ajax({
-                    url: '../custom_sw/manequin_engine/mannequin_imager.php',  //Server script to process data
-                    type: 'POST',
-                    xhr: function() {  // Custom XMLHttpRequest
-                        var myXhr = $.ajaxSettings.xhr();
-                        if(myXhr.upload){ // Check if upload property exists
-                            myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
-                        }
-                        return myXhr;
-                    },
-                    //Ajax events
-                    success: function(data)
-                    {
-                        if (data === 0) 
-                            alert("Error");
-                        else
-                            uploader_or_shower($('#man_prod_id').prop("value"));
-                    },
-                    error: function(request,error)
-                    {
-                        //alert("Request: "+JSON.stringify(request));
-                        alert("Error");
-                    },
-                    // Form data
-                    data: formData,
-                    //Options to tell jQuery not to process data or worry about content-type.
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                });
-            });
+            uploader_or_shower($('#man_prod_id').prop("value"),"front");
+            uploader_or_shower($('#man_prod_id').prop("value"),"back");
         </script>
 	<table id="lineType" style="display:none;">
 		<tr id="image_id">

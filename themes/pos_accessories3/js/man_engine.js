@@ -7,7 +7,7 @@
 var items_on_figur = new Array();
 var mannequin_position = "front";
 
-function dress_it(layer,item) {
+function dress_it(layer,item,item_back) {
   if ((item === "") || (layer === "")) return;
   // jaka je to vrstva
   z_index = 900 + parseInt(layer);
@@ -21,10 +21,15 @@ function dress_it(layer,item) {
   // overim zda neoblikam 2 mikiny, kalhoty proste stejnou vrstvu?
   //check_same_level(part);        
   
-  // pripravim element
-  var element = "<img class='mannequin_clothes' src='" + item + "' id='" + element_id +"' style='z-index: " + z_index + "' ondblclick=\"undress_item('" + element_id + "');\" />";
-  $("#dressing_cabin").append(element);
+  // pripravim elementy
+  var element_front = "<img class='mannequin_clothes' src='" + item + "' id='" + element_id +"' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
+  var element_back = "<img class='mannequin_clothes' src='" + item_back + "' id='" + element_id +"_back' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
+  
+  $("#dressing_cabin").append(element_front);
+  $("#dressing_cabin").append(element_back);
   items_on_figur.push(element_id);
+  
+  show_items_by_figur_position();
 }
 
 // sundat vsechno
@@ -46,6 +51,7 @@ function undress_item(id) {
     if ( items_on_figur[i] === id )
     {
       $("#" + items_on_figur[i]).remove();
+      $("#" + items_on_figur[i] + "_back").remove();
       index = i;
       break;
     }
@@ -95,4 +101,24 @@ function rotate_mannequin()
     $("#mannequin_playground").addClass("mannequin_playground_" + move_to);
 
     mannequin_position = move_to;
+    show_items_by_figur_position();
+}
+
+function show_items_by_figur_position()
+{
+    var array_length = items_on_figur.length;
+    for (var i = 0; i < array_length; i++) 
+    {
+        if (mannequin_position === "front")
+        {
+            $("#" + items_on_figur[i] + "_back").css("display", "none");
+            $("#" + items_on_figur[i]).css("display", "block");
+        }
+        else
+        {
+            $("#" + items_on_figur[i]).css("display", "none");
+            $("#" + items_on_figur[i] + "_back").css("display", "block");
+        }
+      
+    }
 }
