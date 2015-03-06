@@ -5,6 +5,7 @@
  */
 // JavaScript Document
 var items_on_figur = new Array();
+var mannequin_position = "front";
 
 function dress_it(layer,item) {
   if ((item === "") || (layer === "")) return;
@@ -86,5 +87,12 @@ function check_same_level(level)
   }
 } 
 
+function rotate_mannequin()
+{
+    move_to = (mannequin_position === "front") ? "back" : "front";
+    
+    $("#mannequin_playground").removeClass("mannequin_playground_" + mannequin_position);
+    $("#mannequin_playground").addClass("mannequin_playground_" + move_to);
 
-
+    mannequin_position = move_to;
+}
