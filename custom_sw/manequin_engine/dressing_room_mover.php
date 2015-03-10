@@ -70,6 +70,7 @@ function list_dressing_room($customer)
 {
     $output = array();
     // get front image
+    $front = array('id_record' => '', 'id_product' => '', 'front_image_path' => '', 'layer' => '', 'front_image' => '');
     $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer` '
             . 'FROM `ps_custom_maneq` '
                 . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '
@@ -80,6 +81,7 @@ function list_dressing_room($customer)
     }
     
     // get back image
+    $back = array('back_image_path' => '');
     $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as back_image,`layer` '
             . 'FROM `ps_custom_maneq` '
                 . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '

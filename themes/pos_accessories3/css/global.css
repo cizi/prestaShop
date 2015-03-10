@@ -9049,10 +9049,10 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .close_cabin{color: black; float: right; padding-right: 8px; top: 25px; font-weight: bold;}
 .close_dressing_button{width: 22px; height: 22px;}
 .close_cabin span{line-height: 40px; font-size: 13px;}
-.mannequin_playground_front{ background: url(../img/mannequin_front.png) no-repeat; background-size: 159px 500px; width: 159px; height: 500px; z-index: 900; position: absolute; top: 40px; left: 30px; padding-top: 550px;}
-.mannequin_playground_back{ background: url(../img/mannequin_back.png) no-repeat; background-size: 159px 500px; width: 159px; height: 500px; z-index: 900; position: absolute; top: 40px; left: 30px; padding-top: 550px;}
-.rags{position: absolute; top: 40px; left: 190px;}
+.mannequin_playground_front{ background: url(../img/mannequin_front.png); background-repeat: no-repeat; width: 240px; height: 660px; z-index: 900; position: absolute; top: 40px; left: 40px; padding-top: 600px;}
+.mannequin_playground_back{ background: url(../img/mannequin_back.png); background-repeat: no-repeat; width: 240px; height: 660px; z-index: 900; position: absolute; top: 40px; left: 40px; padding-top: 600px;}
+.rags{position: absolute; top: 40px; left: 220px;}
 .dr_images{width: 25%; height: 25%; float: left;}
 .dr_tiny_button{width: 115px!important; float: right}
 .dr_font{font-family: opensans!important; font-size: 10px!important; text-transform: uppercase; }
-.mannequin_clothes{ width: 159px; height: 500px; position: absolute; top: 40px; left: 30px;}
+.mannequin_clothes{ position: absolute; top: 11px; left: 17px;}

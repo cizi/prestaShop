@@ -443,7 +443,8 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
     if (rags == null) return;
     var html = "<table cellpadding='4'>";
     var columner = 0;
-    $.each(rags, function(idx, obj) { 
+    $.each(rags, function(idx, obj) {
+        if (obj.id_product === "") return;
         if (columner%2 === 0) html += "<tr>";
         html += "<td></td><td>";
         
