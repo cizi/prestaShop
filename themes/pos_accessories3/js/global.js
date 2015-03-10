@@ -408,6 +408,7 @@ function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element
         dataType:'json',
         success : function(data) {
             //$("#" + target_element).text("data");
+            //alert("Request: "+JSON.stringify(data));
             make_wardrobe(id_lang,id_guest,id_customer,root_url,target_element, data);
         },
         error : function(request,error)
