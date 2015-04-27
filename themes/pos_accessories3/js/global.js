@@ -388,6 +388,7 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
             alert(err);
         }
     });
+	open_dressing_room(id_lang,id_guest,id_customer,root_url,'wardrobe');
 }
 
 function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element)
@@ -418,8 +419,8 @@ function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element
         }
     });
     
-    $("#cls_bnt").html(btn_close_label);
-    $("#dressing_cabin").css("display","block");
+    //$("#cls_bnt").html(btn_close_label);
+   //$("#dressing_cabin").css("display","block");
 }
 
 function close_dressing_room()
@@ -446,20 +447,20 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
     var columner = 0;
     $.each(rags, function(idx, obj) {
         if (obj.id_product === "") return;
-        if (columner%2 === 0) html += "<tr>";
-        html += "<td></td><td>";
+        html += "<tr>";
+        html += "<td>";
         
         html += "<img class='dr_images' src='" + root_url + obj.front_image_path + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
         
         html += "<a class='button button-small manequin_smaller ajax_add_to_cart_button dr_tiny_button dr_font' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
-	html += "<i class='fa fa-shopping-cart'></i><span class='dr_font'>" + add_to_cart + "</span></a>&nbsp;&nbsp;";
+		html += "<i class='fa fa-shopping-cart'></i><span class='dr_font'>" + add_to_cart + "</span></a>&nbsp;&nbsp;";
         
         html += "<span type='button' class='button button-small manequin_smaller dr_tiny_button dr_font' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>";
         html += remove_from + "</span>";
         
         
         html += "</td>";
-        if (columner%2 === 1) html += "</tr>";
+        html += "</tr>";
         columner++;
     });
     html += "</table>";
@@ -512,4 +513,16 @@ function set_translation(language)
         added = "Added!";
         add_to_cart = "To cart";
     }
+}
+
+var cabinIsClosed = true;
+function showCabin()
+{
+	if (cabinIsClosed) {
+		$("#newDressing").animate({"margin-left": "0px"});
+	} else {
+		$("#newDressing").animate({"margin-left": "-620px"});
+	}
+	cabinIsClosed = !cabinIsClosed;
+
 }

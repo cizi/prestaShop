@@ -30,13 +30,17 @@
 <div id="dressing_cabin" class="dressing_cabin">
     <div id="close_cabin" class="close_cabin"><span onclick="close_dressing_room();" id="cls_bnt" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();"></span> <img id="dressin_room_button" class="close_dressing_button" src="../themes/pos_accessories3/img/close.png" onclick="close_dressing_room();" onmouseover="hover_close_dressing_on();" onmouseout="hover_close_dressing_off();" />
         <div id="dressing_room_content">
-            <div class="mannequin_playground_front" id="mannequin_playground">
-                <span type='button' class='button button-small manequin_smaller dr_font' onclick='rotate_mannequin();'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otočit figurínu</span><br />
+            <div class="mannequin_playground mannequin_playground_front" id="mannequin_playground">
+                <span type='button' class='button button-small manequin_smaller dr_font' onclick='rotate_mannequin();'>
+					&nbsp;&nbsp;&nbsp;&nbsp;otočit figurínu
+				</span>
             </div>
             <div id="wardrobe" class="rags"></div>
         </div>
     </div>
 </div>
+
+
         <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');"></span>
         <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
 	<div class="shopping_cart">

@@ -13,8 +13,9 @@ function dress_it(layer,item,item_back) {
   z_index = 900 + parseInt(layer);
 
   temp = item.substring(item.lastIndexOf("/")+1, item.length);
-  element_id = temp.replace(".png", "");
-  
+  temp = temp.replace(".png", "");
+  element_id = temp.replace(".jpg", "");
+
   // nemam to uz nahodou oblecene? kdyz jo sundat
   if (already_dressed(element_id)) return;
 
@@ -24,9 +25,9 @@ function dress_it(layer,item,item_back) {
   // pripravim elementy
   var element_front = "<img class='mannequin_clothes' src='" + item + "' id='" + element_id +"' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
   var element_back = "<img class='mannequin_clothes' src='" + item_back + "' id='" + element_id +"_back' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
-  
-  $("#dressing_cabin").append(element_front);
-  $("#dressing_cabin").append(element_back);
+
+  $("#newDressing").append(element_front);
+  $("#newDressing").append(element_back);
   items_on_figur.push(element_id);
   
   show_items_by_figur_position();
@@ -119,6 +120,5 @@ function show_items_by_figur_position()
             $("#" + items_on_figur[i]).css("display", "none");
             $("#" + items_on_figur[i] + "_back").css("display", "block");
         }
-      
     }
 }
