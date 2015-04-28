@@ -79,7 +79,7 @@ $(document).ready(function() {
 														</div> <!-- content_price-->
 													{/if}
 													<div class="button-container">
-                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#" onclick="flee_to_the_manequin('{$lang_iso}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','Přidat do šatny','{$base_dir}');" title="Přidat do šatny" rel="{$product.link|escape:'html':'UTF-8'}">
+                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#" onclick="flee_to_the_manequin('{$cookie->id_lang}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','Přidat do šatny','{$base_dir}');" title="Přidat do šatny" rel="{$product.link|escape:'html':'UTF-8'}">
                                                                                                                 <i class="fa-shopping-cart"></i>
                                                                                                                 <span id="man_btn_{$product.id_product}">{l s='Přidat do šatny'}</span>
                                                                                                             </a><br /><div style="height: 8px"> </div>

@@ -78,8 +78,10 @@
 {/if}
 
 <div class="newDressing" id="newDressing">
-    <span onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe'); showCabin();" id="cls_bnt" onmouseover="hover_close_dressing_on();"
-          onmouseout="hover_close_dressing_off();"></span>
+    <div onclick="open_dressing_room('{$cookie->id_lang}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe'); showCabin();" id="cls_bnt" onmouseover="hover_close_dressing_on();"
+          onmouseout="hover_close_dressing_off();">
+            <br /><br /><br /><br />&nbsp;k<br />&nbsp;a<br />&nbsp;b<br />&nbsp;i<br />&nbsp;n<br />&nbsp;k<br />&nbsp;a
+    </div>
 
     <div class="mannequin_playground_front" id="mannequin_playground"></div>
     <a href="javascript:rotate_mannequin();" class="rotateLabel">otočit figurínu</a>

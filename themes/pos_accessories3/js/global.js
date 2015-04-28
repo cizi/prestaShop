@@ -404,7 +404,8 @@ function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element
         type : 'POST',
         data : {
             'id' : who_is_it,
-            'action' : 'list'
+            'action' : 'list',
+			'id_lang' : id_lang
         },
         dataType:'json',
         success : function(data) {
@@ -443,21 +444,23 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
     set_translation(id_lang);
     if (target_element === "") return;
     if (rags == null) return;
-    var html = "<table cellpadding='4'>";
+    var html = "<table cellpadding='0' cellspacing='0' style='width: 100%'>";
     var columner = 0;
     $.each(rags, function(idx, obj) {
         if (obj.id_product === "") return;
         html += "<tr>";
-        html += "<td>";
-        
+		classSel = (columner%2 == 0) ? "oddTd" : "evenTd";
+        html += "<td class='" + classSel + "'>";
         html += "<img class='dr_images' src='" + root_url + obj.front_image_path + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
-        
+
+		html += "<h4>" + obj.name + "</h4>"
+		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');\"> </div>";
+		html += "<input type='checkbox' class='ragsItems' value='" + obj.id_record + "' />";
         html += "<a class='button button-small manequin_smaller ajax_add_to_cart_button dr_tiny_button dr_font' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
 		html += "<i class='fa fa-shopping-cart'></i><span class='dr_font'>" + add_to_cart + "</span></a>&nbsp;&nbsp;";
         
-        html += "<span type='button' class='button button-small manequin_smaller dr_tiny_button dr_font' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>";
-        html += remove_from + "</span>";
-        
+        //html += "<span type='button' class='button button-small manequin_smaller dr_tiny_button dr_font' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>";
+        //html += remove_from + "</span>";
         
         html += "</td>";
         html += "</tr>";
@@ -495,7 +498,7 @@ function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, tar
 function set_translation(language)
 {
     if (language === "") return;
-    if (language === "cs")
+    if (language == 2)
     {
         remove_from = "Pryč ze šatny";
         btn_close_label = "zavřít";

@@ -18,6 +18,7 @@ $id_customer = filter_input(INPUT_POST,'id');
 $id_product = filter_input(INPUT_POST,'id_product');
 $action_shortcut = filter_input(INPUT_POST,'action');
 $id_record = filter_input(INPUT_POST,'id_record');
+$id_lang = (filter_input(INPUT_POST,'id_lang')) ? filter_input(INPUT_POST,'id_lang') : 2;
 
 if (empty($action_shortcut)) return 1;
 
@@ -33,7 +34,7 @@ switch ($action_shortcut)
         break;
     case "list":
         if (empty($id_customer)) return 1;
-        echo json_encode(list_dressing_room($id_customer));
+        echo json_encode(list_dressing_room($id_customer, $id_lang));
         break;
 }
 
@@ -66,17 +67,26 @@ function remove_from_dressing_room($id_rec)
     return ($result === 1) ? $result : 0;
 }
 
-function list_dressing_room($customer)
+function list_dressing_room($customer, $lang)
 {
     $output = array();
     // get front image
-    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer` '
+    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer`, `ps_product_lang`.`name` '
             . 'FROM `ps_custom_maneq` '
-                . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '
-            . 'WHERE `id_customer`=%s', $customer, ' AND `front_image`=%i', 1);
+            . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '
+            . 'LEFT JOIN `ps_product_lang` ON `ps_custom_maneq`.`id_product` = `ps_product_lang`.`id_product` '
+            . 'WHERE `id_customer`=%s', $customer, ' AND `front_image`=%i ', 1, ' AND '
+            . '`ps_product_lang`.`id_lang` = %i', $lang);
     foreach ($result as $n => $row) 
     {
-        $front = array('id_record' => $row['id'], 'id_product' => $row['id_product'], 'front_image_path' => $row['front_image'], 'layer' => $row['layer'], 'front_image' => $row['front_image']);
+        $front = array(
+            'id_record' => $row['id'],
+            'id_product' => $row['id_product'],
+            'front_image_path' => $row['front_image'],
+            'layer' => $row['layer'],
+            'front_image' => $row['front_image'],
+            'name' => $row['name']
+        );
         
         // get back image
         $back = array('back_image_path' => '');

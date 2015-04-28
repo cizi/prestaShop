@@ -41,8 +41,8 @@
 </div>
 
 
-        <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');"></span>
-        <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$lang_iso}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
+        <span class="dressing_man" id="dressing_man" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();" onclick="open_dressing_room('{$cookie->id_lang}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');"></span>
+        <span class="dressing_room" id="dressing_room" onclick="open_dressing_room('{$cookie->id_lang}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe');" onmouseover="hover_manequin_on();" onmouseout="hover_manequin_off();">&nbsp;&nbsp;Kabinka</span>
 	<div class="shopping_cart">
 		<div class="shopping_cart_inner">
 			<div class="shopping_cart_inner1">

@@ -9050,7 +9050,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .close_dressing_button{width: 22px; height: 22px;}
 .close_cabin span{line-height: 40px; font-size: 13px;}
 .mannequin_playground_front{
-  background: url(../img/mannequin_front.png) no-repeat;
+  background: url('../img/mannequin_front.png') no-repeat;
   background-size: 93%;
   z-index: 900;
   position: absolute;
@@ -9060,7 +9060,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   height: 500px;
 }
 .mannequin_playground_back{
-  background: url(../img/mannequin_back.png) no-repeat;
+  background: url('../img/mannequin_back.png') no-repeat;
   z-index: 900;
   background-size: 93%;
   position: absolute;
@@ -9069,12 +9069,58 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   width: 170px;
   height: 500px;
 }
-.dr_images{width: 25%; height: 25%; float: left;}
+.dr_images{width: 20%; height: 20%; margin: 0px; float: left; }
 .dr_tiny_button{width: 115px!important; float: right;}
 .dr_font{font-family: opensans!important; font-size: 10px!important; text-transform: uppercase; }
-.mannequin_clothes{ position: absolute; margin-top: 35px; margin-left: 18px; width: 93%impotant; height: 93%; }
-#newDressing { position: fixed; top: 60px; width: 650px; height: 600px; background-color: white; margin-left: -620px; z-index: 800; }
-#cls_bnt { float: right; cursor: pointer; background: url(../img/manequin.png) no-repeat; display: inline-block; width: 22px; height: 48px; margin: 4px;}
-#cls_bnt:hover { background: url(../img/manequin_orange.png) no-repeat; }
-.rags{position: absolute; top: 20px; left: 220px; width: 400px; height: 565px; border: 1px solid black;overflow-y: scroll }
+.mannequin_clothes{ position: absolute; margin-top: -1px; margin-left: 28px; width: 181px ;height: 516px;}
+#newDressing {
+  position: fixed;
+  top: 60px;
+  width: 650px;
+  height: 600px;
+  background-color: white;
+  margin-left: -620px;
+  z-index: 800;
+  border: 1px solid lightgrey;
+}
+#cls_bnt {
+  float: right;
+  cursor: pointer;
+  background: url('../img/manequin.png') no-repeat;
+  display: block;
+  width: 22px;
+  height: 100%;
+  margin: 4px;
+  text-transform: uppercase;
+  color: grey;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: bold;
+}
+#cls_bnt:hover{ color: #E58080;}
+#cls_bnt:hover { background: url('../img/manequin_orange.png') no-repeat; }
+.rags{
+  position: absolute;
+  top: 20px;
+  left: 220px;
+  width: 400px;
+  height: 565px;
+  overflow-y: scroll;
+  border-radius: 15px;
+}
+.oddTd {background-color: #EFEFEF; margin: 0px; padding: 0px; }
+.evenTd {background-color: white; margin: 0px; padding: 0px; }
 .rotateLabel{ position: absolute; margin: 570px 0px 0px 76px; z-index: 1000; font-size: 16px; }
+.removeFromDressing{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url('../img/rec_bin.png') no-repeat;
+  background-size: 20px 20px;
+  display: inline-block;
+  margin-right: 4px;
+}
+.ragsItems{
+  width: 18px;
+  height: 18px;
+}
