@@ -19,6 +19,7 @@ $id_product = filter_input(INPUT_POST,'id_product');
 $action_shortcut = filter_input(INPUT_POST,'action');
 $id_record = filter_input(INPUT_POST,'id_record');
 $id_lang = (filter_input(INPUT_POST,'id_lang')) ? filter_input(INPUT_POST,'id_lang') : 2;
+$web_root = filter_input(INPUT_POST,'root_url');
 
 if (empty($action_shortcut)) return 1;
 
@@ -33,8 +34,8 @@ switch ($action_shortcut)
         echo remove_from_dressing_room($id_record);
         break;
     case "list":
-        if (empty($id_customer)) return 1;
-        echo json_encode(list_dressing_room($id_customer, $id_lang));
+        if (empty($id_customer) || empty($web_root)) return 1;
+        echo json_encode(list_dressing_room($id_customer, $id_lang, $web_root));
         break;
 }
 
@@ -67,16 +68,18 @@ function remove_from_dressing_room($id_rec)
     return ($result === 1) ? $result : 0;
 }
 
-function list_dressing_room($customer, $lang)
+function list_dressing_room($customer, $lang, $web_root)
 {
     $output = array();
     // get front image
-    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer`, `ps_product_lang`.`name` '
+    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer`, `ps_product_lang`.`name`, `ps_image`.`id_image` '
             . 'FROM `ps_custom_maneq` '
             . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '
             . 'LEFT JOIN `ps_product_lang` ON `ps_custom_maneq`.`id_product` = `ps_product_lang`.`id_product` '
+            . 'LEFT JOIN `ps_image` ON `ps_custom_maneq`.`id_product` = `ps_image`.`id_product` '
             . 'WHERE `id_customer`=%s', $customer, ' AND `front_image`=%i ', 1, ' AND '
-            . '`ps_product_lang`.`id_lang` = %i', $lang);
+            . '`ps_product_lang`.`id_lang` = %i', $lang , ' AND '
+            . '`ps_image`.`cover` = %i', 1);
     foreach ($result as $n => $row) 
     {
         $front = array(
@@ -85,7 +88,8 @@ function list_dressing_room($customer, $lang)
             'front_image_path' => $row['front_image'],
             'layer' => $row['layer'],
             'front_image' => $row['front_image'],
-            'name' => $row['name']
+            'name' => $row['name'],
+            'product_image' => foldImagePath($web_root, $row['id_image'])
         );
         
         // get back image
@@ -107,6 +111,17 @@ function list_dressing_room($customer, $lang)
     {
         return $output;
     }
-    
+}
+
+function foldImagePath($rootUrl, $idImage)
+{
+    $idImageLen = strlen($idImage);
+    // find out last number, which is subfolder
+    $subfolder = substr($idImage, -1);
+
+    // folder
+    $folder = substr($idImage, 0, $idImageLen - 1);
+    $pathToImg = $rootUrl . "img/p/{$folder}/{$subfolder}/{$idImage}-small_default.jpg";
+    return $pathToImg;
 }
 ?>

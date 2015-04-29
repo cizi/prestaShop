@@ -9072,7 +9072,16 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .dr_images{width: 20%; height: 20%; margin: 0px; float: left; }
 .dr_tiny_button{width: 115px!important; float: right;}
 .dr_font{font-family: opensans!important; font-size: 10px!important; text-transform: uppercase; }
-.mannequin_clothes{ position: absolute; margin-top: -1px; margin-left: 28px; width: 181px ;height: 516px;}
+.mannequin_clothes{
+  position: absolute;
+  margin-top: -98px;
+  margin-left: 0px;
+  -webkit-transform: scale(0.82); /* Saf3.1+, Chrome */
+  -moz-transform: scale(0.82); /* FF3.5+ */
+  -ms-transform: scale(0.82); /* IE9 */
+  -o-transform: scale(0.82); /* Opera 10.5+ */
+  transform: scale(0.82);
+}
 #newDressing {
   position: fixed;
   top: 60px;
@@ -9109,7 +9118,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   border-radius: 15px;
 }
 .oddTd {background-color: #EFEFEF; margin: 0px; padding: 0px; }
-.evenTd {background-color: white; margin: 0px; padding: 0px; }
+.evenTd {background-color: white; margin: 0px; padding: 0px; border-bottom: 1px solid grey; }
 .rotateLabel{ position: absolute; margin: 570px 0px 0px 76px; z-index: 1000; font-size: 16px; }
 .removeFromDressing{
   cursor: pointer;
@@ -9123,4 +9132,13 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .ragsItems{
   width: 18px;
   height: 18px;
+}
+.dress_it{
+  float: left;
+  display: inline;
+  -webkit-transform: scale(0.7); /* Saf3.1+, Chrome */
+  -moz-transform: scale(0.7); /* FF3.5+ */
+  -ms-transform: scale(0.7); /* IE9 */
+  -o-transform: scale(0.7); /* Opera 10.5+ */
+  transform: scale(0.7);
 }

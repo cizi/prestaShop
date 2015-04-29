@@ -20,7 +20,7 @@ function dress_it(layer,item,item_back) {
   if (already_dressed(element_id)) return;
 
   // overim zda neoblikam 2 mikiny, kalhoty proste stejnou vrstvu?
-  //check_same_level(part);        
+  check_same_level(layer);
   
   // pripravim elementy
   var element_front = "<img class='mannequin_clothes' src='" + item + "' id='" + element_id +"' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
@@ -83,13 +83,13 @@ function already_dressed(id)
 // zchecknu zda nemam oblecenou uz stejnou vrstvu - pokud ano tak ji vyjmu 
 function check_same_level(level)
 {
-  var array_length = items_on_figur.length;
+  array_length = items_on_figur.length;
   for (var i = 0; i < array_length; i++) 
   {
-    var info = items_on_figur[i].split("~");
-    if (info[1] == level)
+    info = items_on_figur[i].split("-");
+    if (info[0] == level)
     {
-       undress_item(info[2]);
+       undress_item(items_on_figur[i]);
     }
   }
 } 
