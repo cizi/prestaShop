@@ -95,11 +95,26 @@ function list_dressing_room($customer, $lang, $web_root)
         // get back image
         $back = array('back_image_path' => '');
         $result_back = dibi::query('SELECT `path` as `back_image`,`layer` as `back_layer` FROM `ps_custom_maneq_image` WHERE `front_image`=%i', 0, ' AND `id_product`=%i', $row['id_product']);
-        foreach ($result_back as $n => $row) 
+        foreach ($result_back as $n => $bc)
         {
-            $back = array('back_image_path' => $row['back_image']);
+            $back = array('back_image_path' => $bc['back_image']);
         }
-        $output[] = array_merge($front, $back);
+
+        // all sizes for product
+        $result_sizes = dibi::query('SELECT `ps_attribute_impact`.`id_attribute`, `ps_attribute_lang`.`name` '
+               . 'FROM `ps_attribute_impact` '
+               . 'LEFT JOIN `ps_attribute_lang` ON `ps_attribute_impact`.`id_attribute` = `ps_attribute_lang`.`id_attribute` '
+               . 'WHERE `ps_attribute_impact`.`id_product` = %i ', $row['id_product'], ' AND '
+               . '`ps_attribute_lang`.`id_lang` = %i', $lang);
+        $all_sizes = "";
+        foreach ($result_sizes as $size) {
+            $all_sizes .= $size['id_attribute']."-".$size['name']."|";
+        }
+        // remove last pipe char if any records in
+        $all_sizes = (strlen($all_sizes) > 0) ? substr($all_sizes, 0, strlen($all_sizes)-1) : '';
+        $sizes = array('sizes' => $all_sizes);
+
+        $output[] = array_merge($front, $back, $sizes);
     }
     
     // return
@@ -121,6 +136,7 @@ function foldImagePath($rootUrl, $idImage)
 
     // folder
     $folder = substr($idImage, 0, $idImageLen - 1);
+    // TODO - file exists file_exists
     $pathToImg = $rootUrl . "img/p/{$folder}/{$subfolder}/{$idImage}-small_default.jpg";
     return $pathToImg;
 }

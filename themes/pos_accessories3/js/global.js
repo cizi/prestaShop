@@ -455,9 +455,22 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
         //html += "<img class='dr_images' src='" + root_url + obj.front_image_path + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
 
 		html += "<img class='dress_it' src='" + obj.product_image + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
-		html += "<h4>" + obj.name + "</h4>"
+		html += "<h4>" + obj.name + "</h4>";
+
 		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');\"> </div>";
 		html += "<input type='checkbox' name='toCart[" + obj.id_record + "]' class='ragsItems' value='" + obj.id_record + "' />";
+
+		// make select with sizes
+		if (obj.sizes != "") {
+			productSizes = obj.sizes.split("|");
+			html += "<select name='toCartSize[" + obj.id_record + "]'>";	// class='form-control attribute_select no-print'
+			for (var i = 0; i < productSizes.length; i++) {
+				attribs = productSizes[i].split("-");
+				html += "<option value='" + attribs[0] + "'>" + attribs[1] + "</option>";
+			}
+			html += "</select>";
+		}
+
         //html += "<a class='button button-small manequin_smaller ajax_add_to_cart_button dr_tiny_button dr_font' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
 		//html += "<i class='fa fa-shopping-cart'></i><span class='dr_font'>" + add_to_cart + "</span></a>&nbsp;&nbsp;";
         
