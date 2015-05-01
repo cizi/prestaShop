@@ -9142,3 +9142,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   -o-transform: scale(0.7); /* Opera 10.5+ */
   transform: scale(0.7);
 }
+.sbDressing{
+  margin: 4px 0px 0px 10px;
+  position: absolute;
+}
