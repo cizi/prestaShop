@@ -9074,8 +9074,8 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .dr_font{font-family: opensans!important; font-size: 10px!important; text-transform: uppercase; }
 .mannequin_clothes{
   position: absolute;
-  margin-top: -98px;
-  margin-left: 0px;
+  margin-top: -97px;
+  margin-left: -1px;
   -webkit-transform: scale(0.82); /* Saf3.1+, Chrome */
   -moz-transform: scale(0.82); /* FF3.5+ */
   -ms-transform: scale(0.82); /* IE9 */

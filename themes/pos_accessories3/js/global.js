@@ -356,13 +356,13 @@ function hover_manequin_off()
     $('#dressing_man').addClass('dressing_man');    
 }
 
-function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text, root_url)
+function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text, root_url, product_price)
 {
     who_is_it = (id_customer != "") ? id_customer : id_guest;
     if (who_is_it == "") return;
     if (id == "") return;
     id_element = "man_btn_" + id;
-    
+
     // lang
     set_translation(id_lang);
     
@@ -372,7 +372,8 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
         data : {
             'id' : who_is_it,
             'id_product' : id,
-            'action' : 'insert'
+            'action' : 'insert',
+			'price' : product_price
         },
         dataType:'json',
         success : function(data) {
@@ -455,8 +456,8 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
         //html += "<img class='dr_images' src='" + root_url + obj.front_image_path + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
 
 		html += "<img class='dress_it' src='" + obj.product_image + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
-		html += "<h4>" + obj.name + "</h4>";
-
+		html += "<h4 style='margin-bottom: 0px;'>" + obj.name + "</h4>";
+		html += "<span class='price product-price'>" + obj.price + "</span>";
 		html += "<br />";
 		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');\"> </div>";
 		html += "<input type='checkbox' name='toCart[" + obj.id_record + "]' class='ragsItems' value='" + obj.id_record + "' />";

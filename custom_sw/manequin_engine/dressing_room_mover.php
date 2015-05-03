@@ -20,6 +20,7 @@ $action_shortcut = filter_input(INPUT_POST,'action');
 $id_record = filter_input(INPUT_POST,'id_record');
 $id_lang = (filter_input(INPUT_POST,'id_lang')) ? filter_input(INPUT_POST,'id_lang') : 2;
 $web_root = filter_input(INPUT_POST,'root_url');
+$product_price = filter_input(INPUT_POST,'price');
 
 if (empty($action_shortcut)) return 1;
 
@@ -27,7 +28,7 @@ switch ($action_shortcut)
 {
     case "insert":         // inserting
         if (empty($id_customer) || empty($id_product)) return 1;
-        echo insert_in_dressing_room($id_customer, $id_product);
+        echo insert_in_dressing_room($id_customer, $id_product, $product_price);
         break;
     case "remove":
         if (empty($id_record)) return 1;
@@ -41,7 +42,7 @@ switch ($action_shortcut)
 
 return;
 
-function insert_in_dressing_room($customer, $product)
+function insert_in_dressing_room($customer, $product, $formatted_price)
 {
     // valid if the entry exists already
     $res = dibi::query('SELECT id FROM `ps_custom_maneq` WHERE `id_customer`=%s AND ', $customer, '`id_product`=%i', $product);
@@ -55,6 +56,7 @@ function insert_in_dressing_room($customer, $product)
         'id' => '',
         'id_customer' => $customer,
         'id_product'  => $product,
+        'product_price' => $formatted_price
     );
     $res = dibi::query('INSERT INTO `ps_custom_maneq`', $data);
     return ($res === 1) ? $res : 0;
@@ -72,7 +74,7 @@ function list_dressing_room($customer, $lang, $web_root)
 {
     $output = array();
     // get front image
-    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer`, `ps_product_lang`.`name`, `ps_image`.`id_image` '
+    $result = dibi::query('SELECT `ps_custom_maneq`.`id`,`ps_custom_maneq`.`id_product`,`path` as front_image,`layer`, `ps_product_lang`.`name`, `ps_image`.`id_image`, `ps_custom_maneq`.`product_price`  '
             . 'FROM `ps_custom_maneq` '
             . 'INNER JOIN `ps_custom_maneq_image` ON `ps_custom_maneq`.`id_product`=`ps_custom_maneq_image`.`id_product` '
             . 'LEFT JOIN `ps_product_lang` ON `ps_custom_maneq`.`id_product` = `ps_product_lang`.`id_product` '
@@ -89,7 +91,8 @@ function list_dressing_room($customer, $lang, $web_root)
             'layer' => $row['layer'],
             'front_image' => $row['front_image'],
             'name' => $row['name'],
-            'product_image' => foldImagePath($web_root, $row['id_image'])
+            'product_image' => foldImagePath($web_root, $row['id_image']),
+            'price' => $row['product_price']
         );
         
         // get back image

@@ -375,7 +375,7 @@
 					<div class="box-cart-bottom">
 						<div class="box-cart-bottom-inner"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
 							<p id="add_to_cart" class="buttons_bottom_block no-print">
-                                                                <span type="button" name="Add_to_man" class="button button-small manequin_smaller" onclick="flee_to_the_manequin('{$cookie->id_lang}','{$product->id}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}','{$base_dir}');">
+                                                                <span type="button" name="Add_to_man" class="button button-small manequin_smaller" onclick="flee_to_the_manequin('{$cookie->id_lang}','{$product->id}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}','{$base_dir}','{convertPrice price=$productPrice}');">
                                                                     <span><i class="fa-shopping-cart"></i><span id="man_btn_{$product->id}">{l s='Add to manequin'}</span></span>
 								</span>
 								<button type="submit" name="Submit" class="button button-small">

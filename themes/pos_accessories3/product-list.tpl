@@ -132,7 +132,8 @@
 															</a>
 													{/if}
                                                                                                             
-                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#" onclick="flee_to_the_manequin('{$cookie->id_lang}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}','{$base_dir}');" title="{l s='Add to manequin'}">
+                                                                                                            <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#"
+																											   onclick="flee_to_the_manequin('{$cookie->id_lang}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}','{$base_dir}','{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}');" title="{l s='Add to manequin'}">
                                                                                                                 <i class="fa-shopping-cart"></i>
                                                                                                                 <span id="man_btn_{$product.id_product}">{l s='Add to manequin'}</span>
                                                                                                             </a>
