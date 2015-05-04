@@ -86,6 +86,7 @@
 
     <div class="mannequin_playground_front" id="mannequin_playground"></div>
     <a href="javascript:rotate_mannequin();" class="rotateLabel">otočit figurínu</a>
+    <div class="shoppingControl" id="shoppingControl"></div>
 </div>
 <div id="page">
     <div class="header-container">

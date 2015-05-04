@@ -43,6 +43,7 @@ function undress_all() {
   items_on_figur = new Array();
 }
 
+
 // vyjmu jeden kus obleceni podle ID
 function undress_item(id) {
   array_length = items_on_figur.length;

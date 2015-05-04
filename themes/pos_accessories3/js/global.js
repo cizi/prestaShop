@@ -456,7 +456,12 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
         //html += "<img class='dr_images' src='" + root_url + obj.front_image_path + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
 
 		html += "<img class='dress_it' src='" + obj.product_image + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
-		html += "<h4 style='margin-bottom: 0px;'>" + obj.name + "</h4>";
+
+		directLink = obj.name.replace(/ /g, "-");
+		directLink = directLink.replace(/\./g, "");
+		directLink = obj.id_product + "-" + removeAccents(directLink).toLowerCase() + ".html";
+
+		html += "<a href=' " + root_url + directLink + " ' class='product-name' style='margin-bottom: 0px;'><b style='font-size: 15px;'>" + obj.name + "</b></a><br />";
 		html += "<span class='price product-price'>" + obj.price + "</span>";
 		html += "<br />";
 		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');\"> </div>";
@@ -484,7 +489,10 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
         columner++;
     });
     html += "</table>";
-    $("#" + target_element).html(html);    
+    $("#" + target_element).html(html);
+	buttons = "<span type='button' class='button button-small manequin_smaller dr_font'>" + add_all_to_cart + "</span>&nbsp;&nbsp;&nbsp;";
+	buttons += "<span type='button' id='select_unselect_all' onclick='checkUncheckAll();' class='button button-small manequin_smaller dr_font'>" + select_all + "</span>";
+	$("#shoppingControl").html(buttons);
 }
 
 function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, id_record)
@@ -523,6 +531,9 @@ function set_translation(language)
         processing = "Zpracovávám...";
         added = "Přidáno!";
         add_to_cart = "Do košíku";
+		select_all = "označit všechno";
+		unselect_all = "odznačit všechno";
+		add_all_to_cart = "vybrané do košíku";
     }
     else
     {
@@ -532,6 +543,9 @@ function set_translation(language)
         processing = "Processing...";
         added = "Added!";
         add_to_cart = "To cart";
+		select_all = "select all";
+		unselect_all = "unselect all";
+		add_all_to_cart = "selected to cart";
     }
 }
 
@@ -545,4 +559,40 @@ function showCabin()
 	}
 	cabinIsClosed = !cabinIsClosed;
 
+}
+
+function removeAccents(strAccents)
+{
+	var strAccents = strAccents.split('');
+	var strAccentsOut = new Array();
+	var strAccentsLen = strAccents.length;
+	var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽžŮůČčĚě';
+	var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZzUuCcEe";
+	for (var y = 0; y < strAccentsLen; y++) {
+		if (accents.indexOf(strAccents[y]) != -1) {
+			strAccentsOut[y] = accentsOut.substr(accents.indexOf(strAccents[y]), 1);
+		} else
+			strAccentsOut[y] = strAccents[y];
+	}
+	strAccentsOut = strAccentsOut.join('');
+	return strAccentsOut;
+}
+
+var allUnchecked = true;
+function checkUncheckAll()
+{
+	$('input[name^="toCart"]').each(function() {
+		if (allUnchecked) {
+			$(this).prop("checked", "true");
+		} else {
+			$(this).prop("checked", "");
+		}
+	});
+
+	if (allUnchecked) {
+		$("#select_unselect_all").text(unselect_all);
+	} else {
+		$("#select_unselect_all").text(select_all);
+	}
+	allUnchecked = !allUnchecked;
 }

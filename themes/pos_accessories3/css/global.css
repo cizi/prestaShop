@@ -9081,6 +9081,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   -ms-transform: scale(0.82); /* IE9 */
   -o-transform: scale(0.82); /* Opera 10.5+ */
   transform: scale(0.82);
+  cursor: pointer;
 }
 #newDressing {
   position: fixed;
@@ -9113,9 +9114,10 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   top: 20px;
   left: 220px;
   width: 400px;
-  height: 565px;
+  height: 525px;
   overflow-y: scroll;
   border-radius: 15px;
+  cursor: pointer;
 }
 .oddTd {background-color: #EFEFEF; margin: 0px; padding: 0px; }
 .evenTd {background-color: white; margin: 0px; padding: 0px; border-bottom: 1px solid grey; }
@@ -9145,4 +9147,9 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .sbDressing{
   margin: 4px 0px 0px 10px;
   position: absolute;
+}
+.shoppingControl{
+  position: absolute;
+  margin-top: 550px;
+  margin-left: 265px;
 }
