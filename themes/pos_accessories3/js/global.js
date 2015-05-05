@@ -470,27 +470,25 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
 		// make select with sizes
 		if (obj.sizes != "") {
 			productSizes = obj.sizes.split("|");
-			html += "<select name='toCartSize[" + obj.id_record + "]' class='sbDressing'>";	// class='form-control attribute_select no-print'
+			html += "<select id='toCartSize_" + obj.id_record + "' name='toCartSize[" + obj.id_record + "]' class='sbDressing'>";	// class='form-control attribute_select no-print'
 			for (var i = 0; i < productSizes.length; i++) {
 				attribs = productSizes[i].split("-");
-				html += "<option value='" + attribs[0] + "'>" + attribs[1] + "</option>";
+				itemSelected = (i == 0) ? " selected='selected' " : "";
+				html += "<option value='" + attribs[0] + "'" + itemSelected + ">" + attribs[1] + "</option>";
 			}
 			html += "</select>";
 		}
 
         //html += "<a class='button button-small manequin_smaller ajax_add_to_cart_button dr_tiny_button dr_font' href='http://presta.solco.cz/cart?add=1&amp;id_product=" + obj.id_product + "' rel='nofollow' title='" + add_to_cart + "' data-id-product=" + obj.id_product + ">";
 		//html += "<i class='fa fa-shopping-cart'></i><span class='dr_font'>" + add_to_cart + "</span></a>&nbsp;&nbsp;";
-        
-        //html += "<span type='button' class='button button-small manequin_smaller dr_tiny_button dr_font' onclick=remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');>";
-        //html += remove_from + "</span>";
-        
+
         html += "</td>";
         html += "</tr>";
         columner++;
     });
     html += "</table>";
     $("#" + target_element).html(html);
-	buttons = "<span type='button' class='button button-small manequin_smaller dr_font'>" + add_all_to_cart + "</span>&nbsp;&nbsp;&nbsp;";
+	buttons = "<span type='button' class='button button-small manequin_smaller dr_font' onclick='selectedToCart();'>" + add_all_to_cart + "</span>&nbsp;&nbsp;&nbsp;";
 	buttons += "<span type='button' id='select_unselect_all' onclick='checkUncheckAll();' class='button button-small manequin_smaller dr_font'>" + select_all + "</span>";
 	$("#shoppingControl").html(buttons);
 }
@@ -595,4 +593,36 @@ function checkUncheckAll()
 		$("#select_unselect_all").text(select_all);
 	}
 	allUnchecked = !allUnchecked;
+}
+
+function selectedToCart()
+{
+	$('input[name^="toCart"]').each(function() {
+		if ($(this).is(":checked")) {
+			productToCart = $(this).val();
+			productSizeToCart = $("#toCartSize_" + productToCart).val();
+			productSizeToCart = (typeof productSizeToCart == 'undefined') ? null : productSizeToCart;
+
+			// ajaxCart.add( $('#product_page_product_id').val(), $('#idCombination').val(), true, null, $('#quantity_wanted').val(), null);
+			//ajaxCart.add(productToCart, productSizeToCart, false, null);
+			ajaxCart.add( productToCart);
+			/*
+			// input
+			$.ajax({
+				type: "GET",
+				url: baseDir+'/modules/paypal/express_checkout/ajax.php',
+				data: { get_qty: "1", id_product: productToCart, id_product_attribute: productSizeToCart },
+				cache: false,
+				success: function(result) {
+					if (result == '1') {
+						$('#container_express_checkout').slideDown();
+					} else {
+						$('#container_express_checkout').slideUp();
+					}
+					return true;
+				}
+			});
+			*/
+		}
+	});
 }
