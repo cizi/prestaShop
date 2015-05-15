@@ -9051,13 +9051,13 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .close_cabin span{line-height: 40px; font-size: 13px;}
 .mannequin_playground_front{
   background: url('../img/mannequin_front.png') no-repeat;
-  background-size: 93%;
+  background-size: 110%;
   z-index: 900;
   position: absolute;
-  top: 60px;
-  left: 40px;
+  top: 10px;
+  left: 30px;
   width: 170px;
-  height: 500px;
+  height: 600px;
 }
 .mannequin_playground_back{
   background: url('../img/mannequin_back.png') no-repeat;
@@ -9074,13 +9074,13 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .dr_font{font-family: opensans!important; font-size: 10px!important; text-transform: uppercase; }
 .mannequin_clothes{
   position: absolute;
-  margin-top: -97px;
-  margin-left: -1px;
-  -webkit-transform: scale(0.82); /* Saf3.1+, Chrome */
-  -moz-transform: scale(0.82); /* FF3.5+ */
-  -ms-transform: scale(0.82); /* IE9 */
-  -o-transform: scale(0.82); /* Opera 10.5+ */
-  transform: scale(0.82);
+  margin-top: -84px;
+  margin-left: 3px;
+  -webkit-transform: scale(0.77); /* Saf3.1+, Chrome */
+  -moz-transform: scale(0.77); /* FF3.5+ */
+  -ms-transform: scale(0.77); /* IE9 */
+  -o-transform: scale(0.77); /* Opera 10.5+ */
+  transform: scale(0.77);
   cursor: pointer;
 }
 #newDressing {
@@ -9121,7 +9121,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 }
 .oddTd {background-color: #EFEFEF; margin: 0px; padding: 0px; }
 .evenTd {background-color: white; margin: 0px; padding: 0px; border-bottom: 1px solid grey; }
-.rotateLabel{ position: absolute; margin: 570px 0px 0px 76px; z-index: 1000; font-size: 16px; }
+.rotateLabel{ display: none; position: absolute; margin: 570px 0px 0px 76px; z-index: 1000; font-size: 16px; }
 .removeFromDressing{
   cursor: pointer;
   width: 20px;
@@ -9152,4 +9152,16 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   position: absolute;
   margin-top: 550px;
   margin-left: 265px;
+}
+
+.mannequinHair{
+  position: absolute;
+  z-index: 998;
+  -webkit-transform: scale(0.79); /* Saf3.1+, Chrome */
+  -moz-transform: scale(0.79); /* FF3.5+ */
+  -ms-transform: scale(0.79); /* IE9 */
+  -o-transform: scale(0.79); /* Opera 10.5+ */
+  transform: scale(0.79);
+  margin-top: -74px;
+  margin-left: 3px;
 }

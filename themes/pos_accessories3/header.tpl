@@ -78,10 +78,11 @@
 {/if}
 
 <div class="newDressing" id="newDressing">
+    <img class="mannequinHair" src="{$base_dir}themes/pos_accessories3/img/brown_hair.png" />
     <div id="wardrobe" class="rags"></div>
     <div onclick="open_dressing_room('{$cookie->id_lang}','{$cookie->id_guest}','{$cookie->id_customer}','{$base_dir}','wardrobe'); showCabin();" id="cls_bnt" onmouseover="hover_close_dressing_on();"
-          onmouseout="hover_close_dressing_off();">
-            <br /><br /><br /><br />&nbsp;k<br />&nbsp;a<br />&nbsp;b<br /><span style="margin-left: 8px;">i</span><br />&nbsp;n<br />&nbsp;k<br />&nbsp;a
+         onmouseout="hover_close_dressing_off();">
+        <br /><br /><br /><br />&nbsp;š<br />&nbsp;a<br />&nbsp;t<br />&nbsp;n<br />&nbsp;a<br />&nbsp;
     </div>
 
     <div class="mannequin_playground_front" id="mannequin_playground"></div>
