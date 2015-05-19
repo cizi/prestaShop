@@ -76,7 +76,16 @@
         <p>{l s='You cannot place a new order from your country.'} <span class="bold">{$geolocation_country}</span></p>
     </div>
 {/if}
-
+{* facebook plugin *}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+{* facebook plugin *}
 <div class="newDressing" id="newDressing">
     <img class="mannequinHair" src="{$base_dir}themes/pos_accessories3/img/brown_hair.png" />
     <div id="wardrobe" class="rags"></div>
@@ -102,7 +111,8 @@
                         </div>
                         <div class="header-content">
                             <div class="header_content col-xs-12 col-md-4 col-sm-4 col-sms-12">
-                                {hook h="blockPosition1"}
+                                <div class="fb-like" data-href="https://www.facebook.com/pages/Yook/1529422073977763?fref=ts" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                                {* hook h="blockPosition1" *}
                             </div>
                             <div id="header_logo" class="col-xs-12 col-md-4 col-sm-4 col-sms-12">
                                 <a href="{$base_dir}" title="{$shop_name|escape:'html':'UTF-8'}">
