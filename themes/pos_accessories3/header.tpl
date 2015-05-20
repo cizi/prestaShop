@@ -111,8 +111,7 @@
                         </div>
                         <div class="header-content">
                             <div class="header_content col-xs-12 col-md-4 col-sm-4 col-sms-12">
-                                <div class="fb-like" data-href="https://www.facebook.com/pages/Yook/1529422073977763?fref=ts" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
-                                {* hook h="blockPosition1" *}
+                                {hook h="blockPosition1"}
                             </div>
                             <div id="header_logo" class="col-xs-12 col-md-4 col-sm-4 col-sms-12">
                                 <a href="{$base_dir}" title="{$shop_name|escape:'html':'UTF-8'}">
