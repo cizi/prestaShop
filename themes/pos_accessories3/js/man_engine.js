@@ -8,97 +8,97 @@ var items_on_figur = new Array();
 var mannequin_position = "front";
 
 function dress_it(layer,item,item_back) {
-  if ((item === "") || (layer === "")) return;
-  // jaka je to vrstva
-  z_index = 900 + parseInt(layer);
+    if ((item === "") || (layer === "")) return;
+    // jaka je to vrstva
+    z_index = 99999 + parseInt(layer);
 
-  temp = item.substring(item.lastIndexOf("/")+1, item.length);
-  temp = temp.replace(".png", "");
-  element_id = temp.replace(".jpg", "");
+    temp = item.substring(item.lastIndexOf("/")+1, item.length);
+    temp = temp.replace(".png", "");
+    element_id = temp.replace(".jpg", "");
 
-  // nemam to uz nahodou oblecene? kdyz jo sundat
-  if (already_dressed(element_id)) return;
+    // nemam to uz nahodou oblecene? kdyz jo sundat
+    if (already_dressed(element_id)) return;
 
-  // overim zda neoblikam 2 mikiny, kalhoty proste stejnou vrstvu?
-  check_same_level(layer);
-  
-  // pripravim elementy
-  var element_front = "<img class='mannequin_clothes' src='" + item + "' id='" + element_id +"' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
-  var element_back = "<img class='mannequin_clothes' src='" + item_back + "' id='" + element_id +"_back' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
+    // overim zda neoblikam 2 mikiny, kalhoty proste stejnou vrstvu?
+    check_same_level(layer);
 
-  $("#newDressing").append(element_front);
-  $("#newDressing").append(element_back);
-  items_on_figur.push(element_id);
-  
-  show_items_by_figur_position();
+    // pripravim elementy
+    var element_front = "<img class='mannequin_clothes' src='" + item + "' id='" + element_id +"' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
+    var element_back = "<img class='mannequin_clothes' src='" + item_back + "' id='" + element_id +"_back' style='z-index: " + z_index + "; display: none;' ondblclick=\"undress_item('" + element_id + "');\" />";
+
+    $("#newDressing").append(element_front);
+    $("#newDressing").append(element_back);
+    items_on_figur.push(element_id);
+
+    show_items_by_figur_position();
 }
 
 // sundat vsechno
 function undress_all() {
-  array_length = items_on_figur.length;
-  for (var i = 0; i < array_length; i++) 
-  {
-    $("#" + items_on_figur[i]).remove();
-  }  
-  items_on_figur = new Array();
+    array_length = items_on_figur.length;
+    for (var i = 0; i < array_length; i++)
+    {
+        $("#" + items_on_figur[i]).remove();
+    }
+    items_on_figur = new Array();
 }
 
 
 // vyjmu jeden kus obleceni podle ID
 function undress_item(id) {
-  array_length = items_on_figur.length;
-  index = -1;
-  for (var i = 0; i < array_length; i++) 
-  {
-    if ( items_on_figur[i] === id )
+    array_length = items_on_figur.length;
+    index = -1;
+    for (var i = 0; i < array_length; i++)
     {
-      $("#" + items_on_figur[i]).remove();
-      $("#" + items_on_figur[i] + "_back").remove();
-      index = i;
-      break;
+        if ( items_on_figur[i] === id )
+        {
+            $("#" + items_on_figur[i]).remove();
+            $("#" + items_on_figur[i] + "_back").remove();
+            index = i;
+            break;
+        }
     }
-  }
-  // jeste ho vyjmu z pole
-  if (index > -1) {
-    items_on_figur.splice(index, 1);
-  }
+    // jeste ho vyjmu z pole
+    if (index > -1) {
+        items_on_figur.splice(index, 1);
+    }
 }
 
 // zkontroluje zda uz toto neni obleceno, pokud ano svleknu to
 function already_dressed(id)
 {
-  array_length = items_on_figur.length;
-  ret = 0;
-  for (var i = 0; i < array_length; i++) 
-  {
-    if (items_on_figur[i] === id)
+    array_length = items_on_figur.length;
+    ret = 0;
+    for (var i = 0; i < array_length; i++)
     {
-      undress_item(id);
-      ret = 1;
-      break;
+        if (items_on_figur[i] === id)
+        {
+            undress_item(id);
+            ret = 1;
+            break;
+        }
     }
-  }
-  return Boolean(ret); 
+    return Boolean(ret);
 }
 
 // zchecknu zda nemam oblecenou uz stejnou vrstvu - pokud ano tak ji vyjmu 
 function check_same_level(level)
 {
-  array_length = items_on_figur.length;
-  for (var i = 0; i < array_length; i++) 
-  {
-    info = items_on_figur[i].split("-");
-    if (info[0] == level)
+    array_length = items_on_figur.length;
+    for (var i = 0; i < array_length; i++)
     {
-       undress_item(items_on_figur[i]);
+        info = items_on_figur[i].split("-");
+        if (info[0] == level)
+        {
+            undress_item(items_on_figur[i]);
+        }
     }
-  }
-} 
+}
 
 function rotate_mannequin()
 {
     move_to = (mannequin_position === "front") ? "back" : "front";
-    
+
     $("#mannequin_playground").removeClass("mannequin_playground_" + mannequin_position);
     $("#mannequin_playground").addClass("mannequin_playground_" + move_to);
 
@@ -109,7 +109,7 @@ function rotate_mannequin()
 function show_items_by_figur_position()
 {
     var array_length = items_on_figur.length;
-    for (var i = 0; i < array_length; i++) 
+    for (var i = 0; i < array_length; i++)
     {
         if (mannequin_position === "front")
         {
