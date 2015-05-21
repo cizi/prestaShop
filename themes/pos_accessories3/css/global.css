@@ -9156,7 +9156,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 
 .mannequinHair{
   position: absolute;
-  z-index: 998;
+  z-index: 100097;
   -webkit-transform: scale(0.79); /* Saf3.1+, Chrome */
   -moz-transform: scale(0.79); /* FF3.5+ */
   -ms-transform: scale(0.79); /* IE9 */
@@ -9165,7 +9165,12 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   margin-top: -74px;
   margin-left: 3px;
 }
-.menu-search-inner{
+.menu-search-inner {
   position: relative;
   z-index: 9999;
+}
+
+.shopping_cart_inner1 .shopping_cart_inner .shopping_cart .block_content {
+  position: relative;
+  z-index: 10000;
 }
