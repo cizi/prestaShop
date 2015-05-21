@@ -23,7 +23,7 @@
   $ftp_user = "backup_agent";
   $ftp_pass = "backup_666";
   $ftp_folder = "backups/presta.solco.cz/";
-  $folders_to_backups = array("crons","config","themes","custom_sw","img","modules","css");
+  $folders_to_backups = array("crons","config","themes","custom_sw","img","modules","css","tools","translation","admin5010");
   $ftp_filename = date("Y-d-m_Hi" )."_all_presta_backup.zip";
   $folders_to_zip = array("");
   
