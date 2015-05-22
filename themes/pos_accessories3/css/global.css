@@ -7361,7 +7361,7 @@ div.star a:hover {
 
 .header-container {
   position: relative;
-  z-index: 101;
+  z-index: 9999;
 }
 #right_column{margin-top: 18px;}
 #index #right_column{margin-top: 0;}
@@ -9167,10 +9167,5 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 }
 .menu-search-inner {
   position: relative;
-  z-index: 9999;
-}
-
-.shopping_cart_inner1 .shopping_cart_inner .shopping_cart .block_content {
-  position: relative;
-  z-index: 10000;
+  z-index: 9990;
 }
