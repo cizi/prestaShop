@@ -5246,7 +5246,7 @@ a:hover {
     padding-left: 30px;
     padding-right: 30px; } }
 body {
-  background: #221e1d;
+  background: #dadada;
   min-width: 320px;
   height: 100%;
   font-size: 14px;
@@ -5819,7 +5819,7 @@ ul.product_list.list  li.ajax_block_product:hover .add-to-links
 
 .button.button-small{
   color: #777;
-  font-size: 18px;
+  font-size: 15px;
   padding: 4px 12px;
   border: none;
   background: #f1f1f1;
@@ -5827,6 +5827,7 @@ ul.product_list.list  li.ajax_block_product:hover .add-to-links
   margin: 5px 2px 0 0;
   font-weight: normal;
   height: 34px;
+  font-family: "opensans", sans-serif!important;
 }
 .item-inner .add-to-links, .item-left-inner .add-to-links {
   position: absolute;
@@ -9097,23 +9098,28 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
   float: right;
   cursor: pointer;
   background: url('../img/manequin.png') no-repeat;
+  background-position: 3px 10px;
   display: block;
-  width: 22px;
+  width: 30px;
   height: 100%;
-  margin: 4px;
+  padding: 4px;
   text-transform: uppercase;
-  color: grey;
   vertical-align: middle;
   font-size: 18px;
   font-weight: bold;
+  background-color: #81b21b;
 }
+
 #cls_bnt:hover{ color: #E58080;}
-#cls_bnt:hover { background: url('../img/manequin_orange.png') no-repeat; }
+#cls_bnt:hover {
+  background: url('../img/manequin_orange.png') no-repeat;
+  background-position: 3px 10px;
+}
 .rags{
   position: absolute;
   top: 20px;
   left: 220px;
-  width: 400px;
+  width: 396px;
   height: 525px;
   overflow-y: scroll;
   border-radius: 15px;
