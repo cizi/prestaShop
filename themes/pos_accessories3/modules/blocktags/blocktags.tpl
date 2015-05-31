@@ -26,7 +26,7 @@
 <!-- Block tags module -->
 <div id="tags_block_left" class="block tags_block">
 	<p class="title_block">
-		<span>{l s='Popular Tags' mod='blocktags'}</span>
+		<span>{l s='Populární tagy' mod='blocktags'}</span>
 	</p>
 	<div class="block_content">
 		{if $tags}
