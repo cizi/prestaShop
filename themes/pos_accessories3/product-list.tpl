@@ -50,8 +50,8 @@
 			<div class="item">
 				<div class="item-inner">
 					<div class="item-inner-box">
-						<div class="icon-newsale">	 
-							{if $product.specific_prices}<span class="sale">{l s='Sale'}</span>{/if}	
+						<div class="icon-newsale">
+							{if $product.specific_prices}<span class="sale">{l s='Sale'}</span>{/if}
 							{if isset($product.new) && $product.new == 1}<span class="new">{l s='New'}</span>{/if}
 						</div>
 						<div class="item-inner-top">
@@ -70,7 +70,7 @@
 											<i class="fa fa-retweet"></i>
 											<span>{l s='Add to Compare' mod='postabproductslider'}</span></a>
 									</li>
-								{/if}			
+								{/if}
 							</ul><!-- add-to-links -->
 						</div><!-- item-inner-top -->
 						<h5 itemprop="name" class="product-name">
@@ -94,8 +94,8 @@
 									<span itemprop="price" class="price product-price">
 										{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 									</span>
-									
-									
+
+
 									<meta itemprop="priceCurrency" content="{$priceDisplay}" />
 								{/if}
 							</div>
@@ -107,20 +107,20 @@
 													{if ($product.id_product_attribute == 0 || (isset($add_prod_display) && ($add_prod_display == 1))) && $product.available_for_order && !isset($restricted_country_mode) && $product.minimal_quantity <= 1 && $product.customizable != 2 && !$PS_CATALOG_MODE}
 													{if ($product.allow_oosp || $product.quantity > 0)}
 														{if isset($static_token)}
-                                                                                                                    	<a class="button ajax_add_to_cart_button btn btn-default centerToCart" href="{$link->getPageLink('cart',false, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;token={$static_token}", false)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Add to cart'}" data-id-product="{$product.id_product|intval}">
+                                                                                                                    	<a class="button ajax_add_to_cart_button btn btn-default centerToCart" href="{$link->getPageLink('cart',false, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;token={$static_token}", false)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Do košíku'}" data-id-product="{$product.id_product|intval}">
 																<i class="fa fa-shopping-cart"></i>
-																<span>{l s='Add to cart' mod='postabproductslider'}</span>
+																<span>{l s='Do košíku' mod='postabproductslider'}</span>
 															</a>
 														{else}
-															<a class="ajax_add_to_cart_button" href="{$link->getPageLink('cart',false, NULL, 'add=1&amp;id_product={$product.id_product|intval}', false)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Add to cart'}" data-id-product="{$product.id_product|intval}">
+															<a class="ajax_add_to_cart_button" href="{$link->getPageLink('cart',false, NULL, 'add=1&amp;id_product={$product.id_product|intval}', false)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Do košíku'}" data-id-product="{$product.id_product|intval}">
 																<i class="fa fa-shopping-cart"></i>
-																<span>{l s='Add to cart' mod='postabproductslider'}</span>
+																<span>{l s='Do košíku' mod='postabproductslider'}</span>
 															</a>
-														{/if}						
-													{else}                                                                                                                
+														{/if}
+													{else}
                                                                                                             <span class="button ajax_add_to_cart_button btn btn-default disabled">
 															<i class="fa fa-shopping-cart"></i>
-															<span>{l s='Add to cart' mod='postabproductslider'}</span>
+															<span>{l s='Do košíku' mod='postabproductslider'}</span>
 														</span>
 													{/if}
 												{/if}
@@ -131,15 +131,15 @@
 															<span>{l s='Quick view' mod='postabproductslider'}</span>
 															</a>
 													{/if}
-                                                                                                            
+
                                                                                                             <a class="button ajax_add_to_cart_button btn btn-default manequin" href="#"
 																											   onclick="flee_to_the_manequin('{$cookie->id_lang}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','{l s='Add to manequin'}','{$base_dir}','{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}');" title="{l s='Add to manequin'}">
                                                                                                                 <i class="fa-shopping-cart"></i>
                                                                                                                 <span id="man_btn_{$product.id_product}">{l s='Add to manequin'}</span>
                                                                                                             </a>
-													</div>	
-												</div> <!-- actions -->		
-							
+													</div>
+												</div> <!-- actions -->
+
 
 				</div><!-- item-inner-->
 
