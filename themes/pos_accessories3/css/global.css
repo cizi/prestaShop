@@ -9039,7 +9039,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
     margin-right: 6px;
 }
 .centerToCart{
-    top: 4px; 
+    top: 6px;
     margin-bottom: 8px;
 }
 .manequin_smaller{width: 150px!important; top: 1px; padding-left: 10px; line-height: 39px; }
@@ -9086,7 +9086,7 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
 .mannequin_clothes{
   position: absolute;
   margin-top: -80px;
-  margin-left: 3px;
+  margin-left: 4px;
   -webkit-transform: scale(0.77); /* Saf3.1+, Chrome */
   -moz-transform: scale(0.77); /* FF3.5+ */
   -ms-transform: scale(0.77); /* IE9 */
