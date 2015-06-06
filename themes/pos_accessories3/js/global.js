@@ -390,7 +390,10 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
         }
     });
 	open_dressing_room(id_lang,id_guest,id_customer,root_url,'wardrobe');
-    shakeWithElement("newDressing",2, "margin-left", 25);
+	// pokud je kabina otevrena, nehybat s ni
+	if (cabinIsClosed == true) {
+		shakeWithElement("newDressing",1, "margin-left", 25);
+	}
 }
 
 function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element)
@@ -562,10 +565,6 @@ function showCabin()
 
 function shakeWithElement(idElement, times, propertyName, offsetValue)
 {
-	// pokud je kabina otevrena, nehybat s ni
-	if (cabinIsClosed == false) {
-		return;
-	}
     var repeat = parseInt(times) == 0 ? 2 : parseInt(times);
 	var originalValue = parseInt($("#" + idElement).css(propertyName));
 	var moveTo = originalValue + offsetValue;
