@@ -70,7 +70,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		history.back();
 	});
-	
+
 	jQuery.curCSS = jQuery.css;
 	if (!!$.prototype.cluetip)
 		$('a.cluetip').cluetip({
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			tracking: true,
 			sticky: false,
 			mouseOutClose: true,
-			fx: {             
+			fx: {
 		    	open:       'fadeIn',
 		    	openSpeed:  'fast'
 			}
@@ -99,14 +99,14 @@ $(document).ready(function(){
 function highdpiInit()
 {
 	if($('.replace-2x').css('font-size') == "1px")
-	{		
+	{
 		var els = $("img.replace-2x").get();
 		for(var i = 0; i < els.length; i++)
 		{
 			src = els[i].src;
 			extension = src.substr( (src.lastIndexOf('.') +1) );
 			src = src.replace("." + extension, "2x." + extension);
-			
+
 			var img = new Image();
 			img.src = src;
 			img.height != 0 ? els[i].src = src : els[i].src = els[i].src;
@@ -120,7 +120,7 @@ function responsiveResize()
 	{
 		accordion('enable');
 	    accordionFooter('enable');
-		responsiveflag = true;	
+		responsiveflag = true;
 	}
 	else if ($(document).width() >= 768)
 	{
@@ -153,7 +153,7 @@ function blockHover(status)
 
 function quick_view()
 {
-	$(document).on('click', '.quick-view:visible', function(e) 
+	$(document).on('click', '.quick-view:visible', function(e)
 	{
 		e.preventDefault();
 		var url = this.rel;
@@ -181,7 +181,7 @@ function bindGrid()
 		display(view);
 	else
 		$('.display').find('li#grid').addClass('selected');
-	
+
 	$(document).on('click', '#grid', function(e){
 		e.preventDefault();
 		display('grid');
@@ -209,27 +209,27 @@ function display(view)
 				html += '<div class="item-right col-sm-8 col-md-8 col-sms-8 col-smb-12">';
 					html += '<h5 itemprop="name" class="product-name">'+ $(element).find('h5').html() + '</h5>';
 					var rating = $(element).find('.comments_note').html(); // check : rating
-					if (rating != null) { 
+					if (rating != null) {
 						html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="comments_note">'+ rating + '</div>';
 					}
 					var price = $(element).find('.content_price').html(); // check : catalog mode is enabled
-					if (price != null) { 
+					if (price != null) {
 						html += '<div class="content_price">'+ price + '</div>';
 					}
-					html += '<p class="product-desc">'+ $(element).find('.product-desc').html() + '</p>';	
+					html += '<p class="product-desc">'+ $(element).find('.product-desc').html() + '</p>';
 					html += '<div class="actions">'+ $(element).find('.actions').html() + '</div>';
 				html += '</div>';
 
-			
+
 			html += '</div></div>';
-			
+
 		$(element).html(html);
-		});		
+		});
 		$('.display').find('li#list').addClass('selected');
 		$('.display').find('li#grid').removeAttr('class');
 		$.totalStorage('display', 'list');
 	}
-	else 
+	else
 	{
 		$('ul.product_list').removeClass('list').addClass('grid row');
 		$('.product_list > li').removeClass('col-xs-12').addClass('col-xs-12 col-sm-6 col-md-4');
@@ -243,34 +243,34 @@ function display(view)
 			html += '</div>';
 			html += '<h5 itemprop="name" class="product-name">'+ $(element).find('h5').html() + '</h5>';
 				var rating = $(element).find('.comments_note').html(); // check : rating
-				if (rating != null) { 
+				if (rating != null) {
 					html += '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="comments_note">'+ rating + '</div>';
 				}
 				var price = $(element).find('.content_price').html(); // check : catalog mode is enabled
-				if (price != null) { 
+				if (price != null) {
 					html += '<div class="content_price">'+ price + '</div>';
-				}	
-				html += '<p class="product-desc">'+ $(element).find('.product-desc').html() + '</p>';				
-			
+				}
+				html += '<p class="product-desc">'+ $(element).find('.product-desc').html() + '</p>';
+
 		html += '</div>';
 
 		html += '<div class="actions">'+ $(element).find('.actions').html() + '</div>';
 
-		html += '</div>';		
+		html += '</div>';
 		html += '</div>';
 		$(element).html(html);
 		});
 		$('.display').find('li#grid').addClass('selected');
 		$('.display').find('li#list').removeAttr('class');
 		$.totalStorage('display', 'grid');
-	}	
+	}
 }
 
-function dropDown() 
+function dropDown()
 {
 	elementClick = '#header .current';
-	elementSlide =  'ul.toogle_content';       
-	activeClass = 'active';			 
+	elementSlide =  'ul.toogle_content';
+	activeClass = 'active';
 
 	$(elementClick).on('click', function(e){
 		e.stopPropagation();
@@ -278,7 +278,7 @@ function dropDown()
 		if(subUl.is(':hidden'))
 		{
 			subUl.slideDown(0);
-			$(this).addClass(activeClass);	
+			$(this).addClass(activeClass);
 		}
 		else
 		{
@@ -343,7 +343,7 @@ function hover_manequin_on()
 {
     $('#dressing_room').removeClass('dressing_room');
     $('#dressing_room').addClass('dressing_room_on');
-            
+
     $('#dressing_man').removeClass('dressing_man');
     $('#dressing_man').addClass('dressing_man_on');
 }
@@ -353,7 +353,7 @@ function hover_manequin_off()
     $('#dressing_room').removeClass('dressing_room_on');
     $('#dressing_room').addClass('dressing_room');
     $('#dressing_man').removeClass('dressing_man_on');
-    $('#dressing_man').addClass('dressing_man');    
+    $('#dressing_man').addClass('dressing_man');
 }
 
 function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text, root_url, product_price)
@@ -365,7 +365,7 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
 
     // lang
     set_translation(id_lang);
-    
+
     $.ajax({
         url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
         type : 'POST',
@@ -377,11 +377,11 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
         },
         dataType:'json',
         success : function(data) {
-            if (data === 0) 
+            if (data === 0)
                 alert(err);
             else
                 $("#" + id_element).html(added);
-                
+
         },
         error : function(request,error)
         {
@@ -390,12 +390,13 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
         }
     });
 	open_dressing_room(id_lang,id_guest,id_customer,root_url,'wardrobe');
+    shakeWithElement("newDressing",2, "margin-left", 25);
 }
 
 function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element)
 {
     set_translation(id_lang);
-    
+
     // get me all items for customer
     who_is_it = (id_customer != "") ? id_customer : id_guest;
     if (who_is_it === "") return;
@@ -421,7 +422,7 @@ function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element
             alert(err);
         }
     });
-    
+
     //$("#cls_bnt").html(btn_close_label);
    //$("#dressing_cabin").css("display","block");
 }
@@ -505,7 +506,7 @@ function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, tar
         },
         dataType:'json',
         success : function(data) {
-            if (data === 0) 
+            if (data === 0)
                 alert(err);
             else
                 open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element);
@@ -557,6 +558,26 @@ function showCabin()
 	}
 	cabinIsClosed = !cabinIsClosed;
 
+}
+
+function shakeWithElement(idElement, times, propertyName, offsetValue)
+{
+	// pokud je kabina otevrena, nehybat s ni
+	if (cabinIsClosed == false) {
+		return;
+	}
+    var repeat = parseInt(times) == 0 ? 2 : parseInt(times);
+	var originalValue = parseInt($("#" + idElement).css(propertyName));
+	var moveTo = originalValue + offsetValue;
+	//var indVar = eval(propertyName);
+    for (var i = 0; i < repeat; i++ )
+    {
+		// vlastnosti obsahuji znak "-" se musi casovat, protoze JS je bere jako minus
+		if (propertyName == "margin-left") {
+			$("#" + idElement).animate({ "margin-left" : moveTo + "px"});
+        	$("#" + idElement).animate({ "margin-left" : originalValue + "px"});
+		}
+    }
 }
 
 function removeAccents(strAccents)
