@@ -492,8 +492,9 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
     });
     html += "</table>";
     $("#" + target_element).html(html);
-	buttons = "<span type='button' class='button button-small manequin_smaller dr_font' onclick='selectedToCart();'>" + add_all_to_cart + "</span>&nbsp;&nbsp;&nbsp;";
-	buttons += "<span type='button' id='select_unselect_all' onclick='checkUncheckAll();' class='button button-small manequin_smaller dr_font'>" + select_all + "</span>";
+	buttons = "<span type='button' class='button button-small manequin_smaller dr_font dressing_room_btn' onclick='selectedToCart();'>" + add_all_to_cart + "</span>&nbsp;&nbsp;&nbsp;";
+	buttons += "<span type='button' class='button button-small manequin_smaller dr_font dressing_room_btn' onclick=\"removeSelected('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "');\">" + remove_selected + "</span>&nbsp;&nbsp;&nbsp;";
+	buttons += "<span type='button' id='select_unselect_all' onclick='checkUncheckAll();' class='button button-small manequin_smaller dr_font dressing_room_btn'>" + select_all + "</span>";
 	$("#shoppingControl").html(buttons);
 }
 
@@ -533,9 +534,10 @@ function set_translation(language)
         processing = "Zpracovávám...";
         added = "Přidáno!";
         add_to_cart = "Do košíku";
-		select_all = "označit všechno";
-		unselect_all = "odznačit všechno";
+		select_all = "označit vše";
+		unselect_all = "odznačit vše";
 		add_all_to_cart = "vybrané do košíku";
+		remove_selected = "smazat vybrané";
     }
     else
     {
@@ -548,6 +550,7 @@ function set_translation(language)
 		select_all = "select all";
 		unselect_all = "unselect all";
 		add_all_to_cart = "selected to cart";
+		remove_selected = "delete selected";
     }
 }
 
@@ -643,6 +646,16 @@ function selectedToCart()
 				}
 			});
 			*/
+		}
+	});
+}
+
+function removeSelected(id_lang, id_guest, id_customer, root_url, target_element)
+{
+	$('input[name^="toCart"]').each(function() {
+		if ($(this).is(":checked")) {
+			var productToRemove = $(this).val();
+			remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, productToRemove);
 		}
 	});
 }

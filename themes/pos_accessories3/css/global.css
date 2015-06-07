@@ -9043,6 +9043,14 @@ ul.product_list.list .ajax_block_product, .button.ajax_add_to_cart_button, .butt
     margin-bottom: 8px;
 }
 .manequin_smaller{width: 150px!important; top: 1px; padding-left: 10px; line-height: 39px; }
+.dressing_room_btn{
+  width: 100px!important;
+  top: -4px;
+  padding-left: 0px;
+  line-height: 20px!important;
+  font-size: 8px!important;
+  text-align: center!important;
+}
 .dressing_cabin{
   position: fixed;
   display: none;
