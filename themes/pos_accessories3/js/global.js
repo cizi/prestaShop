@@ -396,7 +396,7 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
 	}
 }
 
-function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element)
+function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element,url,cart)
 {
     set_translation(id_lang);
 
@@ -405,23 +405,29 @@ function open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element
     if (who_is_it === "") return;
     if (target_element === "") return;
     $.ajax({
-        url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
+        url : baseDir + 'modules/dressingroom/ajax.php',
         type : 'POST',
         data : {
             'id' : who_is_it,
+            'url': url,
+            'get' : 1,
+            'cart' : cart,
+            'id_lang' : id_lang,
+            'method' : 'getdata',
             'action' : 'list',
 			'id_lang' : id_lang,
 			'root_url' : root_url
         },
         dataType:'json',
         success : function(data) {
+            
             //$("#" + target_element).text("data");
-            //alert("Request: "+JSON.stringify(data));
+            
             make_wardrobe(id_lang,id_guest,id_customer,root_url,target_element, data);
         },
         error : function(request,error)
         {
-            //alert("Request: "+JSON.stringify(request));
+        //    alert("Request: "+JSON.stringify(request));
             alert(err);
         }
     });
@@ -465,20 +471,23 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
 		directLink = obj.name.replace(/ /g, "-");
 		directLink = directLink.replace(/\./g, "");
 		directLink = obj.id_product + "-" + removeAccents(directLink).toLowerCase() + ".html";
-
 		html += "<a href=' " + root_url + directLink + " ' class='product-name' style='margin-bottom: 0px;'><b style='font-size: 15px;'>" + obj.name + "</b></a><br />";
 		html += "<span class='price product-price'>" + obj.price + "</span>";
 		html += "<br />";
-		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "','" + pathToTheImage + "');\"> </div>";
+
+		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "','"+obj.id_cart+"','" + pathToTheImage + "');\"> </div>";
+		html += "<input type='checkbox' name='toCart[" + obj.id_product + "]' class='ragsItems' value='" + obj.id_product + "' />";
+
+		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "','"+obj.id_cart+"','" + pathToTheImage + "');\"> </div>";
 		html += "<input type='checkbox' data-target=\"create_element_id('" + pathToTheImage + "');\" name='toCart[" + obj.id_record + "]' class='ragsItems' value='" + obj.id_record + "' />";
 
 		// make select with sizes
 		if (obj.sizes != "") {
 			productSizes = obj.sizes.split("|");
-			html += "<select id='toCartSize_" + obj.id_record + "' name='toCartSize[" + obj.id_record + "]' class='sbDressing'>";	// class='form-control attribute_select no-print'
+			html += "<select id='attribute_" + obj.id_product + "' name='attribute_" + obj.id_product + "' class='sbDressing'>";	// class='form-control attribute_select no-print'
 			for (var i = 0; i < productSizes.length; i++) {
 				attribs = productSizes[i].split("-");
-				itemSelected = (i == 0) ? " selected='selected' " : "";
+				itemSelected = (attribs[0] == obj.selected_attribute) ? " selected='selected' " : "";
 				html += "<option value='" + attribs[0] + "'" + itemSelected + ">" + attribs[1] + "</option>";
 			}
 			html += "</select>";
@@ -499,15 +508,18 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
 	$("#shoppingControl").html(buttons);
 }
 
-function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, id_record, pathToTheImage)
+
+function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, id_record, id_cart, pathToTheImage)
+
 {
     if (id_record === "") return;
-    $.ajax({
-        url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
+    $.ajax({       
+        url : baseDir + 'modules/dressingroom/ajax.php',
         type : 'POST',
         data : {
             'id_record' : id_record,
-            'action' : 'remove'
+            'method' : 'remove',
+            'id_cart' : id_cart
         },
         dataType:'json',
         success : function(data) {
@@ -516,7 +528,7 @@ function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, tar
             else
 				var evalCmd = eval("create_element_id('" + pathToTheImage + "');");
 				undress_item(evalCmd);
-                open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element);
+                open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element,root_url,id_cart);
         },
         error : function(request,error)
         {
@@ -626,29 +638,10 @@ function selectedToCart()
 	$('input[name^="toCart"]').each(function() {
 		if ($(this).is(":checked")) {
 			productToCart = $(this).val();
-			productSizeToCart = $("#toCartSize_" + productToCart).val();
+			productSizeToCart = $("#attribute_" + productToCart).val();
 			productSizeToCart = (typeof productSizeToCart == 'undefined') ? null : productSizeToCart;
-
-			// ajaxCart.add( $('#product_page_product_id').val(), $('#idCombination').val(), true, null, $('#quantity_wanted').val(), null);
-			//ajaxCart.add(productToCart, productSizeToCart, false, null);
-			ajaxCart.add( productToCart);
-			/*
-			// input
-			$.ajax({
-				type: "GET",
-				url: baseDir+'/modules/paypal/express_checkout/ajax.php',
-				data: { get_qty: "1", id_product: productToCart, id_product_attribute: productSizeToCart },
-				cache: false,
-				success: function(result) {
-					if (result == '1') {
-						$('#container_express_checkout').slideDown();
-					} else {
-						$('#container_express_checkout').slideUp();
-					}
-					return true;
-				}
-			});
-			*/
+                        ajaxCart.add(productToCart,productSizeToCart,false,null,1,null);
+                        showCabin();
 		}
 	});
 }
