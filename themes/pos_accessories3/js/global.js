@@ -456,10 +456,11 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
         if (obj.id_product === "") return;
         html += "<tr>";
 		classSel = (columner%2 == 0) ? "evenTd" : "evenTd"; //"oddTd";
+		pathToTheImage = root_url + obj.front_image_path;
         html += "<td class='" + classSel + "'>";
         //html += "<img class='dr_images' src='" + root_url + obj.front_image_path + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
 
-		html += "<img class='dress_it' src='" + obj.product_image + "'  onclick=\"dress_it('" + obj.layer + "','" + root_url + obj.front_image_path + "','" + root_url + obj.back_image_path + "');\" />";
+		html += "<img class='dress_it' src='" + obj.product_image + "'  onclick=\"dress_it('" + obj.layer + "','" + pathToTheImage + "','" + root_url + obj.back_image_path + "');\" />";
 
 		directLink = obj.name.replace(/ /g, "-");
 		directLink = directLink.replace(/\./g, "");
@@ -468,8 +469,8 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
 		html += "<a href=' " + root_url + directLink + " ' class='product-name' style='margin-bottom: 0px;'><b style='font-size: 15px;'>" + obj.name + "</b></a><br />";
 		html += "<span class='price product-price'>" + obj.price + "</span>";
 		html += "<br />";
-		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "');\"> </div>";
-		html += "<input type='checkbox' name='toCart[" + obj.id_record + "]' class='ragsItems' value='" + obj.id_record + "' />";
+		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "','" + pathToTheImage + "');\"> </div>";
+		html += "<input type='checkbox' data-target=\"create_element_id('" + pathToTheImage + "');\" name='toCart[" + obj.id_record + "]' class='ragsItems' value='" + obj.id_record + "' />";
 
 		// make select with sizes
 		if (obj.sizes != "") {
@@ -498,7 +499,7 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
 	$("#shoppingControl").html(buttons);
 }
 
-function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, id_record)
+function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, id_record, pathToTheImage)
 {
     if (id_record === "") return;
     $.ajax({
@@ -513,6 +514,8 @@ function remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, tar
             if (data === 0)
                 alert(err);
             else
+				var evalCmd = eval("create_element_id('" + pathToTheImage + "');");
+				undress_item(evalCmd);
                 open_dressing_room(id_lang,id_guest,id_customer,root_url,target_element);
         },
         error : function(request,error)
@@ -655,6 +658,8 @@ function removeSelected(id_lang, id_guest, id_customer, root_url, target_element
 	$('input[name^="toCart"]').each(function() {
 		if ($(this).is(":checked")) {
 			var productToRemove = $(this).val();
+			var evalCode = eval($(this).attr("data-target"));
+			undress_item(evalCode);
 			remove_from_dressing_room(id_lang, id_guest, id_customer, root_url, target_element, productToRemove);
 		}
 	});

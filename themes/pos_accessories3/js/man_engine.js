@@ -7,14 +7,13 @@
 var items_on_figur = new Array();
 var mannequin_position = "front";
 
+
 function dress_it(layer,item,item_back) {
     if ((item === "") || (layer === "")) return;
     // jaka je to vrstva
     z_index = 99999 + parseInt(layer);
 
-    temp = item.substring(item.lastIndexOf("/")+1, item.length);
-    temp = temp.replace(".png", "");
-    element_id = temp.replace(".jpg", "");
+    element_id = create_element_id(item);
 
     // nemam to uz nahodou oblecene? kdyz jo sundat
     if (already_dressed(element_id)) return;
@@ -47,7 +46,7 @@ function undress_all() {
 // vyjmu jeden kus obleceni podle ID
 function undress_item(id) {
     array_length = items_on_figur.length;
-    index = -1;
+    var index = -1;
     for (var i = 0; i < array_length; i++)
     {
         if ( items_on_figur[i] === id )
@@ -84,8 +83,7 @@ function already_dressed(id)
 // zchecknu zda nemam oblecenou uz stejnou vrstvu - pokud ano tak ji vyjmu 
 function check_same_level(level)
 {
-    array_length = items_on_figur.length;
-    for (var i = 0; i < array_length; i++)
+    for (var i = 0; i < items_on_figur.length; i++)
     {
         info = items_on_figur[i].split("-");
         if (info[0] == level)
@@ -122,4 +120,13 @@ function show_items_by_figur_position()
             $("#" + items_on_figur[i] + "_back").css("display", "block");
         }
     }
+}
+
+function create_element_id(item)
+{
+    temp = item.substring(item.lastIndexOf("/")+1, item.length);
+    temp = temp.replace(".png", "");
+    element_id = temp.replace(".jpg", "");
+
+    return element_id;
 }
