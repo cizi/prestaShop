@@ -478,9 +478,6 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
 		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "','"+obj.id_cart+"','" + pathToTheImage + "');\"> </div>";
 		html += "<input type='checkbox' name='toCart[" + obj.id_product + "]' class='ragsItems' value='" + obj.id_product + "' />";
 
-		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "','"+obj.id_cart+"','" + pathToTheImage + "');\"> </div>";
-		html += "<input type='checkbox' data-target=\"create_element_id('" + pathToTheImage + "');\" name='toCart[" + obj.id_record + "]' class='ragsItems' value='" + obj.id_record + "' />";
-
 		// make select with sizes
 		if (obj.sizes != "") {
 			productSizes = obj.sizes.split("|");
