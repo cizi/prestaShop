@@ -27,9 +27,7 @@ class ManequineControllerCore extends FrontController {
      * @see FrontController::init()
      */
     public function init() {
-        parent::init();
-
-        // Send noindex to avoid ghost carts by bots
+        parent::init();        // Send noindex to avoid ghost carts by bots
         header("X-Robots-Tag: noindex, nofollow", true);
         // Get page main parameters
         $this->id_product = (int) Tools::getValue('id_product', null);
@@ -46,24 +44,15 @@ class ManequineControllerCore extends FrontController {
                 $this->processChangeProductInManequine();
             elseif (Tools::getIsset('delete'))
                 $this->processDeleteProductInCart();
-            // Make redirection
-            if (!$this->errors && !$this->ajax) {
-                $queryString = Tools::safeOutput(Tools::getValue('query', null));
-                if ($queryString && !Configuration::get('PS_CART_REDIRECT'))
-                    Tools::redirect('index.php?controller=search&search=' . $queryString);
-
-                // Redirect to previous page
-                if (isset($_SERVER['HTTP_REFERER'])) {
-                    preg_match('!http(s?)://(.*)/(.*)!', $_SERVER['HTTP_REFERER'], $regs);
-                    if (isset($regs[3]) && !Configuration::get('PS_CART_REDIRECT'))
-                        Tools::redirect($_SERVER['HTTP_REFERER']);
-                }
-
-                Tools::redirect('index.php?controller=order&' . (isset($this->id_product) ? 'ipa=' . $this->id_product : ''));
+            elseif (Tools::getIsset('get')) {
+                $this->processGetProductInManequine();
+            }
+            if (isset($_SERVER['HTTP_REFERER'])) {
+                preg_match('!http(s?)://(.*)/(.*)!', $_SERVER['HTTP_REFERER'], $regs);
+                if (isset($regs[3]) && !Configuration::get('PS_CART_REDIRECT'))
+                    Tools::redirect($_SERVER['HTTP_REFERER']);
             }
         }
-        elseif (!$this->isTokenValid())
-            Tools::redirect('index.php');
     }
 
     /**
@@ -84,6 +73,10 @@ class ManequineControllerCore extends FrontController {
             $this->ajax_refresh = true;
     }
 
+    protected function processGetProductInManequine() {
+        return "hovno";
+    }
+
     protected function processAllowSeperatedPackage() {
         if (!Configuration::get('PS_SHIP_WHEN_AVAILABLE'))
             return;
@@ -95,6 +88,7 @@ class ManequineControllerCore extends FrontController {
         $this->context->cart->update();
         die('{"error":false}');
     }
+
     /**
      * This process add or update a product in the cart
      */
@@ -149,14 +143,6 @@ class ManequineControllerCore extends FrontController {
         }
         if (count($removed) && (int) Tools::getValue('allow_refresh'))
             $this->ajax_refresh = true;
-    }
-
-    /**
-     * Remove discounts on cart
-     */
-    protected function processRemoveDiscounts() {
-        Tools::displayAsDeprecated();
-        $this->errors = array_merge($this->errors, CartRule::autoRemoveFromCart());
     }
 
     /**
