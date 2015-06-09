@@ -367,7 +367,7 @@ function flee_to_the_manequin(id_lang, id, id_guest, id_customer, original_text,
     set_translation(id_lang);
 
     $.ajax({
-        url : root_url + 'custom_sw/manequin_engine/dressing_room_mover.php',
+        url : root_url + 'modules/dressingroom/ajax.php',
         type : 'POST',
         data : {
             'id' : who_is_it,
@@ -472,7 +472,7 @@ function make_wardrobe(id_lang, id_guest, id_customer, root_url, target_element,
 		directLink = directLink.replace(/\./g, "");
 		directLink = obj.id_product + "-" + removeAccents(directLink).toLowerCase() + ".html";
 		html += "<a href=' " + root_url + directLink + " ' class='product-name' style='margin-bottom: 0px;'><b style='font-size: 15px;'>" + obj.name + "</b></a><br />";
-		html += "<span class='price product-price'>" + obj.price + "</span>";
+		html += "<span class='price product-price'>" + obj.price + '  '+ obj.currency +"</span>";
 		html += "<br />";
 
 		html += "<div class='removeFromDressing' onclick=\"remove_from_dressing_room('" + id_lang + "','" + id_guest + "','" + id_customer + "','" + root_url + "','" + target_element + "','" + obj.id_record + "','"+obj.id_cart+"','" + pathToTheImage + "');\"> </div>";

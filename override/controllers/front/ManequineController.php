@@ -47,12 +47,23 @@ class ManequineControllerCore extends FrontController {
             elseif (Tools::getIsset('get')) {
                 $this->processGetProductInManequine();
             }
-            if (isset($_SERVER['HTTP_REFERER'])) {
-                preg_match('!http(s?)://(.*)/(.*)!', $_SERVER['HTTP_REFERER'], $regs);
-                if (isset($regs[3]) && !Configuration::get('PS_CART_REDIRECT'))
-                    Tools::redirect($_SERVER['HTTP_REFERER']);
+            if (!$this->errors && !$this->ajax) {
+                $queryString = Tools::safeOutput(Tools::getValue('query', null));
+                if ($queryString && !Configuration::get('PS_CART_REDIRECT'))
+                    Tools::redirect('index.php?controller=search&search=' . $queryString);
+
+                // Redirect to previous page
+                if (isset($_SERVER['HTTP_REFERER'])) {
+                    preg_match('!http(s?)://(.*)/(.*)!', $_SERVER['HTTP_REFERER'], $regs);
+                    if (isset($regs[3]) && !Configuration::get('PS_CART_REDIRECT'))
+                        Tools::redirect($_SERVER['HTTP_REFERER']);
+                }
+
+                Tools::redirect('index.php?controller=order&' . (isset($this->id_product) ? 'ipa=' . $this->id_product : ''));
             }
         }
+        elseif (!$this->isTokenValid())
+            Tools::redirect('index.php');
     }
 
     /**

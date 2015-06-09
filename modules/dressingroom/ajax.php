@@ -31,7 +31,8 @@ function getData() {
                 'product_image' => foldImagePath(Tools::getValue('url'), $row['id_image']),
                 'price' => $price,
                 'selected_attribute' => $row['id_product_attribute'],
-                'id_cart' => Tools::getValue('cart')
+                'id_cart' => Tools::getValue('cart'),
+                'currency' => Currency::getCurrencyInstance($default_country->id_currency ? (int)$default_country->id_currency : Configuration::get('PS_CURRENCY_DEFAULT'))->iso_code
             );
             $back = array('back_image_path' => '');
             $result_back = $cart->getManequineBackImage($row['id_product']);
