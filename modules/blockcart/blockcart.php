@@ -135,6 +135,8 @@ class BlockCart extends Module
 			$this->smarty->assign('errors', $errors);
 		if (isset($this->context->cookie->ajax_blockcart_display))
 			$this->smarty->assign('colapseExpandStatus', $this->context->cookie->ajax_blockcart_display);
+                if (isset($this->context->cookie->ajax_manequine_display))
+                    $this->smarty->assign('colapseExpandStatusManequine', $this->context->cookie->ajax_manequine_display);
 	}
 
 	public function getContent()

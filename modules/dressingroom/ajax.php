@@ -16,6 +16,11 @@ function foldImagePath($rootUrl, $idImage) {
 function getData() {
     if (Tools::getValue('cart') > 0) {
         $output = array();
+        $currency = Currency::getCurrencyInstance($default_country->id_currency ? (int)$default_country->id_currency : Configuration::get('PS_CURRENCY_DEFAULT'))->iso_code;
+        if(!$currency){
+            'CZK';
+        }
+            
         $cart = new CartCore(Tools::getValue('cart'));
         $result = $cart->getManequineById(Tools::getValue('cart'), Tools::getValue('id_lang'));
         foreach ($result as $n => $row) {
@@ -32,7 +37,7 @@ function getData() {
                 'price' => $price,
                 'selected_attribute' => $row['id_product_attribute'],
                 'id_cart' => Tools::getValue('cart'),
-                'currency' => Currency::getCurrencyInstance($default_country->id_currency ? (int)$default_country->id_currency : Configuration::get('PS_CURRENCY_DEFAULT'))->iso_code
+                'currency' => $currency
             );
             $back = array('back_image_path' => '');
             $result_back = $cart->getManequineBackImage($row['id_product']);
