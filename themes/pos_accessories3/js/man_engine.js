@@ -130,3 +130,30 @@ function create_element_id(item)
 
     return element_id;
 }
+
+/*
+Funkce prehazuje vrsvy podle spec. pravidel
+10 x 50
+10 x 30
+50 x 30
+20 x 30
+*/
+function layersSpecialRules(currentLayer, layerOn)
+{
+  switch(currentLayer | layerOn)
+  {
+      case 10 | 50:
+      case 50 | 10:
+      case 10 | 30:
+      case 30 | 10:
+      case 50 | 30:
+      case 30 | 50:
+      case 20 | 30:
+      case 30 | 20:
+        return true;
+        break;
+      default:
+        return false;
+        break;
+  }
+}
