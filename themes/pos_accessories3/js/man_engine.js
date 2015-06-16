@@ -86,7 +86,7 @@ function check_same_level(level)
     for (var i = 0; i < items_on_figur.length; i++)
     {
         info = items_on_figur[i].split("-");
-        if (info[0] == level)
+        if (info[0] == level || layersSpecialRules(parseInt(info[0]), parseInt(level)))
         {
             undress_item(items_on_figur[i]);
         }
