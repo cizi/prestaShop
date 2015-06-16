@@ -140,20 +140,15 @@ Funkce prehazuje vrsvy podle spec. pravidel
 */
 function layersSpecialRules(currentLayer, layerOn)
 {
-  switch(currentLayer | layerOn)
-  {
-      case 10 | 50:
-      case 50 | 10:
-      case 10 | 30:
-      case 30 | 10:
-      case 50 | 30:
-      case 30 | 50:
-      case 20 | 30:
-      case 30 | 20:
-        return true;
-        break;
-      default:
-        return false;
-        break;
+  if((currentLayer == 10 && layerOn == 50) || (currentLayer == 50 && layerOn == 10)) {
+    return true;
+  } else if ((currentLayer == 10 && layerOn == 30) || (currentLayer == 30 && layerOn == 10)) {
+    return true;
+  } else if ((currentLayer == 50 && layerOn == 30) || (currentLayer == 30 && layerOn == 50)) {
+    return true;
+  } else if ((currentLayer == 20 && layerOn == 30) || (currentLayer == 30 && layerOn == 20)) {
+    return true;
+  } else {
+    return false;
   }
 }
