@@ -1088,6 +1088,22 @@ Quick View Styles
 								}
 							}
 						}
+						#add_to_manequine .exclusive{
+							display: block;
+							width: 100%;
+							&:before,
+							&:after{
+								display: block;
+							}
+							span {													
+								font-size: 20px;	
+								text-align: center;
+								@media (max-width: $screen-md-max) { //max 1199px
+									padding: 12px 22px 14px 70px;
+									font-size: 20px;  
+								}
+							}
+						}                                                
 						.box-cart-bottom {
 							right: 0;
 							left: 0;

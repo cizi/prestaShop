@@ -13,7 +13,8 @@ class ManequineControllerCore extends FrontController {
     protected $customization_id;
     protected $qty;
     public $ssl = true;
-    protected $ajax_refresh = false;
+    protected $ajax_refresh = true;
+    protected $attributeSizePicker = false;
 
     /**
      * This is not a public page, so the canonical redirection is disabled
@@ -48,6 +49,7 @@ class ManequineControllerCore extends FrontController {
                 $this->processGetProductInManequine();
             }
             if (!$this->errors && !$this->ajax) {
+                
                 $queryString = Tools::safeOutput(Tools::getValue('query', null));
                 if ($queryString && !Configuration::get('PS_CART_REDIRECT'))
                     Tools::redirect('index.php?controller=search&search=' . $queryString);
@@ -80,12 +82,11 @@ class ManequineControllerCore extends FrontController {
         }
         $removed = CartRule::autoRemoveFromCart();
         CartRule::autoAddToCart();
-        if (count($removed) && (int) Tools::getValue('allow_refresh'))
+        if ((int) Tools::getValue('allow_refresh'))
             $this->ajax_refresh = true;
     }
 
     protected function processGetProductInManequine() {
-        return "hovno";
     }
 
     protected function processAllowSeperatedPackage() {
@@ -113,7 +114,10 @@ class ManequineControllerCore extends FrontController {
             $this->errors[] = Tools::displayError('This product is no longer available.', !Tools::getValue('ajax'));
             return;
         }
-
+        if($product->getProductAttributesIds($this->id_product) && $this->id_product_attribute == 'null'){
+            $this->attributeSizePicker = true;
+        }
+        
         // If no errors, process product addition
         if (!$this->errors && $mode == 'add') {
             // Add cart if no cart found
@@ -152,7 +156,7 @@ class ManequineControllerCore extends FrontController {
                 }
             }
         }
-        if (count($removed) && (int) Tools::getValue('allow_refresh'))
+        if ((int) Tools::getValue('allow_refresh'))
             $this->ajax_refresh = true;
     }
 
@@ -171,9 +175,10 @@ class ManequineControllerCore extends FrontController {
     public function displayAjax() {
         if ($this->errors)
             die(Tools::jsonEncode(array('hasError' => true, 'errors' => $this->errors)));
+        if ($this->ajax_refresh && $this->attributeSizePicker)
+            die(Tools::jsonEncode(array('refresh' => true,'attributeSizePicker' => true)));
         if ($this->ajax_refresh)
             die(Tools::jsonEncode(array('refresh' => true)));
-
         // write cookie if can't on destruct
         $this->context->cookie->write();
 

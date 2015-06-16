@@ -75,6 +75,7 @@ class CartControllerCore extends FrontController {
                 $this->processDuplicateProduct();
             // Make redirection
             if (!$this->errors && !$this->ajax) {
+
                 $queryString = Tools::safeOutput(Tools::getValue('query', null));
                 if ($queryString && !Configuration::get('PS_CART_REDIRECT'))
                     Tools::redirect('index.php?controller=search&search=' . $queryString);

@@ -111,6 +111,10 @@
                             <i class="fa fa-shopping-cart"></i>
                             <span>{l s='Do košíku' mod='postabproductslider'}</span>
                         </a>
+                        <a class="button ajax_add_to_manequine_button btn btn-default centerToCart" href="{$link->getPageLink('manequine',false, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;token={$static_token}", false)|escape:'html':'UTF-8'}" rel="nofollow" title="Přidat do šatny" data-id-product="{$product.id_product|intval}">
+                            <i class="fa-shopping-cart"></i>
+                            <span id="man_btn_{$product.id_product}">{l s='Add to manequin'}</span>
+                        </a>
                     {else}
                         <a class="ajax_add_to_cart_button" href="{$link->getPageLink('cart',false, NULL, 'add=1&amp;id_product={$product.id_product|intval}&amp;token={$static_token}', false)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Do košíku'}" data-id-product="{$product.id_product|intval}">
                             <i class="fa fa-shopping-cart"></i>
@@ -131,10 +135,6 @@
                 <span>{l s='Quick view' mod='postabproductslider'}</span>
             </a>
         {/if}
-        <a class="button ajax_add_to_manequine_button btn btn-default" href="{$link->getPageLink('manequine',false, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;token={$static_token}", false)|escape:'html':'UTF-8'}" rel="nofollow" title="Přidat do šatny" data-id-product="{$product.id_product|intval}">
-            <i class="fa-shopping-cart"></i>
-            <span id="man_btn_{$product.id_product}">{l s='Add to manequin'}</span>
-        </a>
     </div>
 </div> <!-- actions -->
 

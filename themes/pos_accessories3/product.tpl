@@ -375,7 +375,7 @@
         <div class="box-cart-bottom">
             <div class="box-cart-bottom-inner"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
                 <form method="post" action="{$link->getPageLink('manequine')}" onsubmit="true">
-                    <p>
+                    <p id="add_to_manequine" class="buttons_bottom_block no-print">
                         <button type="submit" name="Submit" class="button button-small">
                             <span><i class="fa fa-shopping-cart"></i>{l s='Add to manequin'}</span>
                         </button>
@@ -383,8 +383,6 @@
                         <input type="hidden" name="token" value="{$static_token}" />
                         <input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
                         <input type="hidden" name="add" value="1" />
-                        <input type="hidden" name="id_product_attribute" id="idCombination" value="" />
-
                     </p>
                 </form>
                 <p id="add_to_cart" class="buttons_bottom_block no-print">
