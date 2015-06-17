@@ -343,15 +343,15 @@ var ajaxCart = {
             return;
         } 
         //disabled the button when adding to not double add if user double click
+        /*
         if (addedFromProductPage)
         {
             $('#add_to_manequine button').prop('disabled', 'disabled').addClass('disabled');
             $('.filled').removeClass('filled');
-
         }
         else
             $(callerElement).prop('disabled', 'disabled');
-
+        */
         if ($('.cart_block_list').hasClass('collapsed'))
             this.expandManequine()();
         
@@ -367,7 +367,12 @@ var ajaxCart = {
             success: function (jsonData, textStatus, jqXHR)
             {
                     //    alert(JSON.stringify(this));
-                       window.parent.ajaxCart.updateLayerManequine(this);
+                       //window.parent.ajaxCart.updateLayerManequine(this);
+                       if (cabinIsClosed == true) {
+                      		shakeWithElement("newDressing",1, "margin-left", 25);
+                      	}
+                        //make_wardrobe(id_lang,id_guest,id_customer,root_url,target_element, data);
+
 
                /*     if (contentOnly)
                         parent.$.fancybox.close();
