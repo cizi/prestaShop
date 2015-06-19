@@ -126,9 +126,9 @@ class ManequineControllerCore extends FrontController {
                     $guest = new Guest(Context::getContext()->cookie->id_guest);
                     $this->context->cart->mobile_theme = $guest->mobile_theme;
                 }
-                $this->context->cart->addManequine();
+                $this->context->cart->add();
                 if ($this->context->cart->id)
-                    $this->context->cookie->id_manequine = (int) $this->context->cart->id;
+                    $this->context->cookie->id_cart = (int) $this->context->cart->id;
             }
 
             // Check customizable fields
