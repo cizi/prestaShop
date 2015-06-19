@@ -14,15 +14,17 @@ function foldImagePath($rootUrl, $idImage) {
 }
 
 function getData() {
-    if (Tools::getValue('cart') > 0) {
+
+    $context = Context::getContext();
+    if ($context->cart->id > 0) {
         $output = array();
-        $currency = Currency::getCurrencyInstance($default_country->id_currency ? (int)$default_country->id_currency : Configuration::get('PS_CURRENCY_DEFAULT'))->iso_code;
-        if(!$currency){
+        $currency = Currency::getCurrencyInstance($default_country->id_currency ? (int) $default_country->id_currency : Configuration::get('PS_CURRENCY_DEFAULT'))->iso_code;
+        if (!$currency) {
             'CZK';
         }
-            
-        $cart = new CartCore(Tools::getValue('cart'));
-        $result = $cart->getManequineById(Tools::getValue('cart'), Tools::getValue('id_lang'));
+
+        $cart = new CartCore($context->cart->id);
+        $result = $cart->getManequineById($context->cart->id, $context->cart->id_lang);
         foreach ($result as $n => $row) {
             $product = new ProductCore($row['id_product']);
             $price = $product->getPrice();
@@ -36,7 +38,7 @@ function getData() {
                 'product_image' => foldImagePath(Tools::getValue('url'), $row['id_image']),
                 'price' => $price,
                 'selected_attribute' => $row['id_product_attribute'],
-                'id_cart' => Tools::getValue('cart'),
+                'id_cart' => $context->cart->id,
                 'currency' => $currency
             );
             $back = array('back_image_path' => '');
@@ -62,7 +64,7 @@ function getData() {
 function removeData() {
     if (Tools::getValue('id_record') > 0 && Tools::getValue('id_cart') > 0) {
         $cart = new CartCore(Tools::getValue('id_cart'));
-        $result = $cart->deleteManequineId(Tools::getValue('id_record'),Tools::getValue('id_cart'));
+        $result = $cart->deleteManequineId(Tools::getValue('id_record'), Tools::getValue('id_cart'));
         return $result;
     } else {
         return 0;
