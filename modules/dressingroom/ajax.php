@@ -27,7 +27,7 @@ function getData() {
         $result = $cart->getManequineById($context->cart->id, $context->cart->id_lang);
         foreach ($result as $n => $row) {
             $product = new ProductCore($row['id_product']);
-            $price = $product->getPrice();
+            $price = Tools::ps_round($product->getPrice());
             $front = array(
                 'id_record' => $row['id'],
                 'id_product' => $row['id_product'],
