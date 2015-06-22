@@ -640,9 +640,9 @@ function selectedToCart()
 			productSizeToCart = $("#attribute_" + productToCart).val();
 			productSizeToCart = (typeof productSizeToCart == 'undefined') ? null : productSizeToCart;
                         ajaxCart.add(productToCart,productSizeToCart,false,null,1,null);
-                        showCabin();
 		}
 	});
+	showCabin();
 }
 
 function removeSelected(id_lang, id_guest, id_customer, root_url, target_element, id_cart)
