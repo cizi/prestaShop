@@ -122,8 +122,9 @@ $(document).ready(function() {
 												{/if}
 													</div>
 														<br /><div style="height: 22px; display: block;"> </div>&nbsp;
-														<a class="button ajax_add_to_cart_button btn btn-default manequin" href="#"
-														   onclick="flee_to_the_manequin('{$cookie->id_lang}','{$product.id_product}','{$cookie->id_guest}','{$cookie->id_customer}','Přidat do šatny','{$base_dir}','{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}');" title="Přidat do šatny" rel="{$product.link|escape:'html':'UTF-8'}">
+														{* button ajax_add_to_manequine_button btn btn-default centerToCart *}
+														<a class="button ajax_add_to_manequine_button btn btn-default manequin" href="{$link->getPageLink('manequine',false, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;token={$static_token}", false)|escape:'html':'UTF-8'}" data-id-product="{$product.id_product|intval}"
+														    title="Přidat do šatny" rel="{$product.link|escape:'html':'UTF-8'}">
 															<i class="fa-shopping-cart"></i>
 															<span id="man_btn_{$product.id_product}">{l s='Přidat do šatny'}</span>
 														</a><br /><div style="height: 8px"> </div>&nbsp;
