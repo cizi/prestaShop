@@ -1,0 +1,33 @@
+.content{
+  
+}
+.items_to_dress {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+}​
+.figur {
+  float: left;
+}
+.bottoms{
+  width: 113px; 
+  height: 162px; 
+}   
+.hidden_elements{
+  display: none;
+}
+.visible_elemnts{
+  display: block;
+}
+.shop_items{
+  padding-left: 30px;
+}
+.shop_items tr td{
+  padding: 5px 10px 5px 10px;
+}
+.undress_all_btn{
+  width: 250px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
